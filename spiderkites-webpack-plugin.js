@@ -1,4 +1,4 @@
-function HtmlReplaceWebpackPlugin(option) {
+function SpiderkitesWebpackPlugin(option) {
 
     const errorMassage = 'Please ensure that `html-webpack-plugin` was placed before `spiderkites-webpack-plugin` in your Webpack config if you were working with Webpack 4.x!';
 
@@ -26,7 +26,7 @@ function HtmlReplaceWebpackPlugin(option) {
     }
 }
 
-HtmlReplaceWebpackPlugin.prototype.apply = function (compiler) {
+SpiderkitesWebpackPlugin.prototype.apply = function (compiler) {
     if (compiler.hooks) {
         compiler.hooks.compilation.tap('HtmlReplaceWebpackPlugin', compilation => {
             if (compilation.hooks.htmlWebpackPluginAfterHtmlProcessing) {
@@ -48,4 +48,4 @@ HtmlReplaceWebpackPlugin.prototype.apply = function (compiler) {
     }
 }
 
-module.exports = HtmlReplaceWebpackPlugin
+module.exports = SpiderkitesWebpackPlugin
