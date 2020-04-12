@@ -5,12 +5,15 @@ import { ColorizerRoutingModule } from './colorizer-routing.module';
 import { ColorizerComponent } from './colorizer.component';
 import { UploadComponent } from './components/upload/upload.component';
 
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [ColorizerComponent, UploadComponent],
   imports: [
     CommonModule,
-    ColorizerRoutingModule
+    ColorizerRoutingModule,
+    MatCardModule
   ]
 })
 export class ColorizerModule { }

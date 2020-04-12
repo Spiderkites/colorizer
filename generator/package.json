@@ -4,12 +4,13 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --base-href ./",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "electron ."
+    "electron": "electron .",
+    "electron:old": "ng serve  --base-href ./ &&electron ."
   },
   "private": true,
   "dependencies": {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-const ipc = (<any>window).require('electron').ipcRenderer; 
+//const ipc = (<any>window).require('electron').ipcRenderer; 
 
 @Component({
   selector: 'app-upload',
@@ -15,7 +15,7 @@ export class UploadComponent implements OnInit {
   }
 
   upload(){
-    ipc.send('upload-file');
+    //ipc.send('upload-file');
   }
 
 }
