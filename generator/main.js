@@ -1,11 +1,20 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu} = require("electron");
 const path = require("path");
 const url = require("url");
 
 let win;
+Menu.setApplicationMenu(false)
+
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600 });
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true // makes it possible to use `require` within our index.html
+    }
+  });
+
 
   // load the dist folder from Angular
   win.loadURL(
@@ -39,3 +48,10 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+
+
+//https://stackoverflow.com/questions/42932129/how-to-use-filesystem-fs-in-angular-cli-with-electron-js
+ipcMain.on('upload-file', function (event) {
+  console.log('upload-file');
+})
