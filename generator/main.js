@@ -1,9 +1,9 @@
-const { app, BrowserWindow, ipcMain, Menu} = require("electron");
+const { app, BrowserWindow, ipcMain, Menu, dialog } = require("electron");
 const path = require("path");
 const url = require("url");
 
 let win;
-Menu.setApplicationMenu(false)
+Menu.setApplicationMenu(false);
 
 
 function createWindow() {
@@ -15,6 +15,7 @@ function createWindow() {
     }
   });
 
+  win.webContents.openDevTools();
 
   // load the dist folder from Angular
   win.loadURL(
@@ -51,7 +52,27 @@ app.on("activate", () => {
 
 
 
+const fs = require("fs");
+const { promisify } = require("util");
+
+const readFile = promisify(fs.readFile);
+
 //https://stackoverflow.com/questions/42932129/how-to-use-filesystem-fs-in-angular-cli-with-electron-js
-ipcMain.on('upload-file', function (event) {
-  console.log('upload-file');
+ipcMain.on('upload-file', async (event) => {
+  const dialogResponse = await dialog.showOpenDialog(
+    {
+      properties: ['openFile'],
+      filters: [
+        { name: 'Svg', extensions: ['svg'] }
+      ]
+    }
+
+  );
+
+  if(!dialogResponse.canceled){
+      const file = await readFile(dialogResponse.filePaths[0]);
+
+      event.sender.send('svg-file', file.toString('utf8'));
+  }
+
 })
