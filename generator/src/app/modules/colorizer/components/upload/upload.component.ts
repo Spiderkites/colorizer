@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UploadService } from '../../services/upload.service';
 
-const ipc = (<any>window).require('electron').ipcRenderer; 
+
 
 @Component({
   selector: 'app-upload',
@@ -9,22 +10,13 @@ const ipc = (<any>window).require('electron').ipcRenderer;
 })
 export class UploadComponent implements OnInit {
 
-  abc= false;
+  @Input()
+  type: String
 
-  constructor() {}
+  constructor(public uploadService: UploadService) {}
   
 
   ngOnInit(): void {
-     ipc.on('svg-file', (event, svg)=>{
-        this.abc = true;
 
-        console.log(svg);
-     } );
   }
-
-
-  upload(){
-    ipc.send('upload-file');
-  }
-
 }

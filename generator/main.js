@@ -8,10 +8,11 @@ Menu.setApplicationMenu(false);
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 800,
+    width: 1200,
     height: 600,
     webPreferences: {
-      nodeIntegration: true // makes it possible to use `require` within our index.html
+      nodeIntegration: true, // makes it possible to use `require` within our index.html
+      backgroundThrottling: false
     }
   });
 
@@ -58,21 +59,21 @@ const { promisify } = require("util");
 const readFile = promisify(fs.readFile);
 
 //https://stackoverflow.com/questions/42932129/how-to-use-filesystem-fs-in-angular-cli-with-electron-js
-ipcMain.on('upload-file', async (event) => {
+ipcMain.on('file-upload', async (event, type) => {
   const dialogResponse = await dialog.showOpenDialog(
     {
       properties: ['openFile'],
       filters: [
-        { name: 'Svg', extensions: ['svg'] }
+        { name: 'svg', extensions: ['svg'] }
       ]
     }
 
   );
 
-  if(!dialogResponse.canceled){
-      const file = await readFile(dialogResponse.filePaths[0]);
+  if (!dialogResponse.canceled) {
+    win.focusOnWebView();
 
-      event.sender.send('svg-file', file.toString('utf8'));
+    event.sender.send('file-uploaded', type, dialogResponse.filePaths[0]);
   }
 
 })
