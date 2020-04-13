@@ -67,13 +67,40 @@ ipcMain.on('file-upload', async (event, type) => {
         { name: 'svg', extensions: ['svg'] }
       ]
     }
-
   );
 
   if (!dialogResponse.canceled) {
     win.focusOnWebView();
 
+    executeScript();
+
     event.sender.send('file-uploaded', type, dialogResponse.filePaths[0]);
   }
 
 })
+
+function executeScript(){
+  const process = require('child_process');
+
+  var child = process.spawn('test.bat'); 
+
+  child.on('error', function(err) {
+    console.log('stderr: <'+err+'>' );
+  });
+
+  child.stdout.on('data', function (data) {
+    console.log(data.toString('utf8'));
+  });
+
+  child.stderr.on('data', function (data) {
+    console.log('stderr: <'+data.toString('utf8')+'>' );
+  });
+
+  child.on('close', function (code) {
+      if (code == 0)
+        console.log('child process complete.');
+      else
+      console.log('child process exited with code ' + code);
+
+  });
+}
