@@ -2,10 +2,9 @@
 
 <div class="filechooser">
 
-    <button mat-raised-button color="primary" (click)='uploadService.upload(type)'>Suche</button>
+    <button mat-raised-button color="primary" (click)='uploadService.upload(type)' [disabled]="(uploadService.isPending$ | async)===true">Suche</button>
 
     <span *ngIf="type==='product'">{{uploadService.productFilePath$ | async}}</span>
     <span *ngIf="type==='color'">{{uploadService.colorFilePath$ | async}}</span>
-
 
 </div>
