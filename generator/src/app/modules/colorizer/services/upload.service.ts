@@ -36,11 +36,18 @@ export class UploadService {
       });
 
     });
+
+    ipcRenderer.on('generated', (event, colorizerHtml)=>{
+      console.log(colorizerHtml);
+    })
   }
 
   upload(type: String): void {
     ipcRenderer.send('file-upload', type);
-    console.log(type);
+  }
+
+ generate(): void {
+    ipcRenderer.send('generate', this._productFilePath$.value, this._colorFilePath$.value);
   }
 }
 

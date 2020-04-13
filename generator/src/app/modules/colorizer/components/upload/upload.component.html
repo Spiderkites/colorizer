@@ -2,6 +2,13 @@
 <button mat-raised-button (click)='uploadService.upload(type)'>Upload</button>
 
 <p>{{type}}</p>
-<p id="upload">{{uploadService.productFilePath$ | async}}</p>
+
+<div *ngIf="type==='product'">
+    <p>{{uploadService.productFilePath$ | async}}</p>
+</div>
+<div *ngIf="type==='color'">
+    <p>{{uploadService.colorFilePath$ | async}}</p>
+</div>
+
 
 

@@ -4,10 +4,10 @@ const path = require("path");
 
 const { promisify } = require("util");
 
-const copyFile = promisify(fs.copyFile);
+const readFile = promisify(fs.readFile);
 
 
-exports.copyfile = async (src, type) => {
-
-    await copyFile(src,  path.join(__dirname, `/../../../colorizer/svg/${type}.svg`));
+exports.readFile = async (src) => {
+    const file = await readFile(src)
+    return file.toString('utf8');
 }

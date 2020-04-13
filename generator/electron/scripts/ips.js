@@ -1,10 +1,8 @@
-
-
 const { ipcMain, dialog } = require("electron");
 const path = require("path");
 
 
-const { copyfile } = require('./handleFileActions');
+const { readFile } = require('./handleFileActions');
 const executeScript = require('./executeScript');
 
 
@@ -29,7 +27,6 @@ class ips {
 
             if (!dialogResponse.canceled) {
 
-                await copyfile(dialogResponse.filePaths[0], type);
                 this.window.focusOnWebView();
 
                 event.sender.send('file-uploaded', type, dialogResponse.filePaths[0]);
@@ -41,13 +38,21 @@ class ips {
         ipcMain.on('generate', async (event, productPath, colorPath) => {
 
             try {
-                await copyfile(productPath, 'product');
-                await copyfile(colorPath, 'color');
-
-                await executeScript( path.join(__dirname, 'test.bat'));
-                
                 this.window.focusOnWebView();
-                event.sender.send('generated');
+
+                const productSvg = await readFile(productPath);
+                console.log(productSvg);
+                const colorSvg = await readFile(colorPath);
+                console.log(colorSvg);
+                const template = await readFile(path.join(__dirname, '../templates/wawi_colorizer.html'));
+                console.log(template);
+
+                let replacedTemplate = template.replace('<%= require("./../../svg/product.svg") %>', productSvg)
+                    .replace('<%= require("./../../svg/color.svg") %>', colorSvg)
+
+                    console.log(replacedTemplate);
+
+                event.sender.send('generated', replacedTemplate);
 
             } catch (e) {
                 event.sender.send('generate-error');

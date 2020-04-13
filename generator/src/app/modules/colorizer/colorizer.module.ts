@@ -6,10 +6,11 @@ import { ColorizerComponent } from './colorizer.component';
 import { UploadComponent } from './components/upload/upload.component';
 
 import {MatCardModule} from '@angular/material/card';
+import { GenerateComponent } from './components/generate/generate.component';
 
 
 @NgModule({
-  declarations: [ColorizerComponent, UploadComponent],
+  declarations: [ColorizerComponent, UploadComponent, GenerateComponent],
   imports: [
     CommonModule,
     ColorizerRoutingModule,
