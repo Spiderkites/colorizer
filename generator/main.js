@@ -101,6 +101,5 @@ function executeScript(){
         console.log('child process complete.');
       else
       console.log('child process exited with code ' + code);
-
   });
 }
