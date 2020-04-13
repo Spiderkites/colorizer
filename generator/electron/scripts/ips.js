@@ -41,16 +41,12 @@ class ips {
                 this.window.focusOnWebView();
 
                 const productSvg = await readFile(productPath);
-                console.log(productSvg);
                 const colorSvg = await readFile(colorPath);
-                console.log(colorSvg);
                 const template = await readFile(path.join(__dirname, '../templates/wawi_colorizer.html'));
-                console.log(template);
 
                 let replacedTemplate = template.replace('<%= require("./../../svg/product.svg") %>', productSvg)
                     .replace('<%= require("./../../svg/color.svg") %>', colorSvg)
 
-                    console.log(replacedTemplate);
 
                 event.sender.send('generated', replacedTemplate);
 
