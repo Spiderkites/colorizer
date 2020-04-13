@@ -8,10 +8,7 @@
     "build": "ng build --base-href ./",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "electron": "electron .",
-    "electron:ng:build": "ng build  --base-href ./ &&electron .",
-    "electron:build": " electron-packager . Spiderkites --platform=win32 --arch=x64"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

@@ -1,14 +1,11 @@
-<p>upload works!</p>
-<button mat-raised-button (click)='uploadService.upload(type)'>Upload</button>
+<h3>{{type}}</h3>
 
-<p>{{type}}</p>
+<div class="filechooser">
 
-<div *ngIf="type==='product'">
-    <p>{{uploadService.productFilePath$ | async}}</p>
+    <button mat-raised-button color="primary" (click)='uploadService.upload(type)'>Suche</button>
+
+    <span *ngIf="type==='product'">{{uploadService.productFilePath$ | async}}</span>
+    <span *ngIf="type==='color'">{{uploadService.colorFilePath$ | async}}</span>
+
+
 </div>
-<div *ngIf="type==='color'">
-    <p>{{uploadService.colorFilePath$ | async}}</p>
-</div>
-
-
-

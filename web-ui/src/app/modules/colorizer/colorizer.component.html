@@ -1,9 +1,17 @@
+<mat-card>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 
-    <mat-card>
-        <app-upload [type]='"product"'></app-upload>
-        <app-upload [type]='"color"'></app-upload>
+<div class=content>
+    <h2>Genarator für WaWi (colorizer)</h2>
+    <mat-divider [inset]="true"></mat-divider>
+    
+    <app-upload [type]='"product"'></app-upload>
+   
+    <app-upload [type]='"color"'></app-upload>
 
-        <app-generate></app-generate>
+    <mat-divider [inset]="true"></mat-divider>
+    <app-generate></app-generate>
+</div>
 
-    </mat-card>
 
+</mat-card>

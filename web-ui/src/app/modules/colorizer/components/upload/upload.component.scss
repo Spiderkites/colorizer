@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    .filechooser{
+
+        flex-direction: row;
+        display: flex;
+        align-items: center;  
+
+        button{
+            margin-right: 16px;
+        }
+    }
+}

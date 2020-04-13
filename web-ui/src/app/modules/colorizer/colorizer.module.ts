@@ -6,6 +6,9 @@ import { ColorizerComponent } from './colorizer.component';
 import { UploadComponent } from './components/upload/upload.component';
 
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { GenerateComponent } from './components/generate/generate.component';
 
 
@@ -14,7 +17,10 @@ import { GenerateComponent } from './components/generate/generate.component';
   imports: [
     CommonModule,
     ColorizerRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatProgressBarModule
   ]
 })
 export class ColorizerModule { }
