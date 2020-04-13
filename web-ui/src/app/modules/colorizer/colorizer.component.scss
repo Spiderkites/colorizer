@@ -1,20 +1,23 @@
 :host {
     display: flex;
     flex: 1;
-   .mat-card {
-       display: flex;
-       flex: 1;
-       flex-direction: column;
-       padding: unset;
-       .mat-progress-bar{
-           border-top-left-radius: 4px;
-           border-top-right-radius: 4px;
-       }
-       .content {
+    .mat-card {
         display: flex;
         flex: 1;
         flex-direction: column;
-        padding: 16px;
-       }
-   }
+        padding: unset;
+        .mat-progress-bar {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .progress-bar-spacer {
+            height: 4px;
+        }
+        .content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 16px;
+        }
+    }
 }

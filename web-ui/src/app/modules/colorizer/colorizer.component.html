@@ -1,17 +1,18 @@
 <mat-card>
     <mat-progress-bar mode="indeterminate" *ngIf="(uploadService.isPending$ | async)===true"></mat-progress-bar>
+    <div class="progress-bar-spacer" *ngIf="(uploadService.isPending$ | async)===false"></div>
 
-<div class=content>
-    <h2>Genarator für WaWi (colorizer)</h2>
-    <mat-divider [inset]="true"></mat-divider>
+    <div class=content>
+        <h2>Genarator für WaWi (colorizer)</h2>
+        <mat-divider [inset]="true"></mat-divider>
 
-    <app-upload [type]='"product"'></app-upload>
-   
-    <app-upload [type]='"color"'></app-upload>
+        <app-upload [type]='"product"'></app-upload>
 
-    <mat-divider [inset]="true"></mat-divider>
-    <app-generate></app-generate>
-</div>
+        <app-upload [type]='"color"'></app-upload>
+
+        <mat-divider [inset]="true"></mat-divider>
+        <app-generate></app-generate>
+    </div>
 
 
 </mat-card>
