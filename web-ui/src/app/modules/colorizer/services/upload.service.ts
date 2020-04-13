@@ -30,6 +30,10 @@ export class UploadService {
       this._colorFilePath$.next("afeeffw");
     }
   }
+
+  generate(): void {
+    console.log('generate');
+  }
 }
 
 
