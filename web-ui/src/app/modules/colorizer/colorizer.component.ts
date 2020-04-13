@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UploadService } from './services/upload.service';
 
 @Component({
   selector: 'app-colorizer',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorizerComponent implements OnInit {
 
-  constructor() { }
+  constructor(public uploadService: UploadService) { }
 
   ngOnInit(): void {
   }
