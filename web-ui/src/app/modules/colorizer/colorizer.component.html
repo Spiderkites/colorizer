@@ -1,6 +1,7 @@
 <mat-card>
-    <mat-progress-bar mode="indeterminate" *ngIf="(uploadService.isPending$ | async)===true"></mat-progress-bar>
-    <div class="progress-bar-spacer" *ngIf="(uploadService.isPending$ | async)===false"></div>
+    <div class="progress-bar-spacer">
+        <mat-progress-bar mode="indeterminate" *ngIf="(uploadService.isPending$ | async)===true"></mat-progress-bar>
+    </div>
 
     <div class=content>
         <h2>Genarator für WaWi (colorizer)</h2>

@@ -11,7 +11,8 @@
             border-top-right-radius: 4px;
         }
         .progress-bar-spacer {
-            height: 4px;
+            min-height: 4px;
+            max-height: 4px;
         }
         .content {
             display: flex;
