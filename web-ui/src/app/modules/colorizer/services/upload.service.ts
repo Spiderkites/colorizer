@@ -39,7 +39,7 @@ export class UploadService {
       }
       this._isPendingToggle();
 
-    }, 4000);
+    }, 1000);
   }
 
   generate(): void {
@@ -50,7 +50,7 @@ export class UploadService {
       this._template$.next('template text');
       this._isPendingToggle();
 
-    }, 2000);
+    }, 1000);
   }
 
   private _isPendingToggle(): void {

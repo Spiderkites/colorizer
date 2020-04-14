@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../../services/upload.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-generate',
@@ -8,9 +9,15 @@ import { UploadService } from '../../services/upload.service';
 })
 export class GenerateComponent implements OnInit {
 
-  constructor(public uploadService: UploadService) {}
+  constructor(public uploadService: UploadService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, undefined, {
+      duration: 2000,
+    });
   }
 
 }

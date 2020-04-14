@@ -3,16 +3,14 @@
     display: flex;
     padding: 16px;
 
-    .actions{
+    .actions {
         flex-direction: row;
         button {
             margin-right: 16px;
         }
-        
     }
 
     .template-output {
         margin: 16px 0;
     }
-
 }

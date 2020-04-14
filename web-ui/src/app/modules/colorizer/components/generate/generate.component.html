@@ -4,12 +4,10 @@
         (click)='uploadService.generate()'>Generate</button>
 
     <button mat-stroked-button [disabled]="(uploadService.template$| async).length < 1"
-        [cdkCopyToClipboard]="uploadService.template$ | async">Copy</button>
+        [cdkCopyToClipboard]="uploadService.template$ | async" (click)="openSnackBar('In Zwischenablage kopiert')">Copy</button>
 </div>
 
-
-<mat-form-field class="example-full-width">
+<mat-form-field class="template-output">
     <mat-label>Template</mat-label>
-    <textarea matInput [readonly]="true" placeholder="Ex. It makes me feel..."
-        [value]="uploadService.template$ | async"></textarea>
+    <textarea matInput [readonly]="true" [value]="uploadService.template$ | async"></textarea>
 </mat-form-field>

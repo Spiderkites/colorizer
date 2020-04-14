@@ -11,6 +11,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatInputModule} from '@angular/material/input';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { GenerateComponent } from './components/generate/generate.component';
 
 
@@ -24,7 +25,8 @@ import { GenerateComponent } from './components/generate/generate.component';
     MatDividerModule,
     MatProgressBarModule,
     MatInputModule,
-    ClipboardModule
+    ClipboardModule,
+    MatSnackBarModule
   ]
 })
 export class ColorizerModule { }
