@@ -10,10 +10,12 @@ export class UploadService {
 
   private _productFilePath$ = new BehaviorSubject<string>(undefined);
   private _colorFilePath$ = new BehaviorSubject<string>(undefined);
+  private _template$ = new BehaviorSubject<string>('');
   private _isPending$ = new BehaviorSubject<boolean>(false);
 
   productFilePath$ = this._productFilePath$.asObservable();
   colorFilePath$ = this._colorFilePath$.asObservable();
+  template$ = this._template$.asObservable();
   isPending$ = this._isPending$.asObservable();
 
   constructor() {
@@ -39,8 +41,16 @@ export class UploadService {
 
     }, 4000);
   }
+
   generate(): void {
-    console.log('generate');
+    this._isPendingToggle();
+
+    setTimeout(() => {
+
+      this._template$.next('template text');
+      this._isPendingToggle();
+
+    }, 2000);
   }
 
   private _isPendingToggle(): void {

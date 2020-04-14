@@ -9,6 +9,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatInputModule} from '@angular/material/input';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 import { GenerateComponent } from './components/generate/generate.component';
 
 
@@ -20,7 +22,9 @@ import { GenerateComponent } from './components/generate/generate.component';
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatInputModule,
+    ClipboardModule
   ]
 })
 export class ColorizerModule { }

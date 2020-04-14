@@ -1,2 +1,15 @@
+<div class="actions">
+    <button mat-raised-button color="primary"
+        [disabled]="(uploadService.productFilePath$| async) === undefined || (uploadService.colorFilePath$| async) === undefined"
+        (click)='uploadService.generate()'>Generate</button>
 
-<button mat-raised-button color="primary" (click)='uploadService.generate()'>Generate</button>
+    <button mat-stroked-button [disabled]="(uploadService.template$| async).length < 1"
+        [cdkCopyToClipboard]="uploadService.template$ | async">Copy</button>
+</div>
+
+
+<mat-form-field class="example-full-width">
+    <mat-label>Template</mat-label>
+    <textarea matInput [readonly]="true" placeholder="Ex. It makes me feel..."
+        [value]="uploadService.template$ | async"></textarea>
+</mat-form-field>
