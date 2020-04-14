@@ -1,9 +1,11 @@
 :host {
     display: flex;
     flex: 1;
+    max-width: 100%;
     .mat-card {
         display: flex;
         flex: 1;
+        max-width: 100%;
         flex-direction: column;
         padding: unset;
         .mat-progress-bar {

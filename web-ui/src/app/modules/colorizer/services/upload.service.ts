@@ -31,7 +31,7 @@ export class UploadService {
 
       if (type === 'product') {
         console.log("type === product")
-        this._productFilePath$.next('filePath');
+        this._productFilePath$.next('C:\Users\lukas\OneDrive\Documents\Spiderkites\Wordpress\Anleitungen');
       } if (type === 'color') {
         this._colorFilePath$.next("afeeffw");
       }

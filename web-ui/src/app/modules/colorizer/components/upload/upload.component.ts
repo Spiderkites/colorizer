@@ -11,7 +11,7 @@ import { UploadService } from '../../services/upload.service';
 export class UploadComponent implements OnInit {
 
   @Input()
-  type: String
+  type: string
 
   constructor(public uploadService: UploadService) {}
   

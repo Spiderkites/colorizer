@@ -1,10 +1,9 @@
-<h3>{{type}}</h3>
+<span class="title">{{type| titlecase}}:</span>
 
-<div class="filechooser">
+<button mat-stroked-button (click)='uploadService.upload(type)'
+    [disabled]="(uploadService.isPending$ | async)===true">Öffnen</button>
 
-    <button mat-raised-button color="primary" (click)='uploadService.upload(type)' [disabled]="(uploadService.isPending$ | async)===true">Suche</button>
-
-    <span *ngIf="type==='product'">{{uploadService.productFilePath$ | async}}</span>
-    <span *ngIf="type==='color'">{{uploadService.colorFilePath$ | async}}</span>
-
+<div class="chosen-path">
+    <p *ngIf="type==='product'">{{uploadService.productFilePath$ | async}}</p>
+    <p *ngIf="type==='color'">{{uploadService.colorFilePath$ | async}}</p>
 </div>
