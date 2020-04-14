@@ -1,6 +1,7 @@
 
+const ipcRenderer = (<any>window).require('electron').ipcRenderer;
 
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -18,43 +19,45 @@ export class UploadService {
   template$ = this._template$.asObservable();
   isPending$ = this._isPending$.asObservable();
 
-  constructor() {
+
+  constructor(private zone: NgZone) {
     this.initIpc();
   }
 
   private initIpc() {
+    ipcRenderer.on('file-uploaded', (event, type, filePath) => {
 
+      if (type === 'product') {
+        this._productFilePath$.next(filePath);
+      } if (type === 'color') {
+        this._colorFilePath$.next(filePath);
+      }
+
+      this.zone.run(() => {
+        this._isPending$.next(false);
+        console.log('enabled time travel');
+      });
+
+    });
+
+    ipcRenderer.on('generate-finished', (event, colorizerHtml) => {
+      this._template$.next(colorizerHtml);
+
+      this.zone.run(() => {
+        this._isPending$.next(false);
+        console.log('enabled time travel');
+      });
+    })
   }
 
   upload(type: String): void {
-    this._isPendingToggle();
-
-    setTimeout(() => {
-
-      if (type === 'product') {
-        console.log("type === product")
-        this._productFilePath$.next('C:\Users\lukas\OneDrive\Documents\Spiderkites\Wordpress\Anleitungen');
-      } if (type === 'color') {
-        this._colorFilePath$.next("afeeffw");
-      }
-      this._isPendingToggle();
-
-    }, 1000);
+    this._isPending$.next(true);
+    ipcRenderer.send('file-upload', type);
   }
 
   generate(): void {
-    this._isPendingToggle();
-
-    setTimeout(() => {
-
-      this._template$.next('template text');
-      this._isPendingToggle();
-
-    }, 1000);
-  }
-
-  private _isPendingToggle(): void {
-    this._isPending$.next(!this._isPending$.value);
+    this._isPending$.next(true);
+    ipcRenderer.send('generate', this._productFilePath$.value, this._colorFilePath$.value);
   }
 }
 

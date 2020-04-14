@@ -6,10 +6,12 @@ const ips = require('./scripts/ips');
 
 let win;
 
+Menu.setApplicationMenu(false);
+
 function createWindow() {
   win = new BrowserWindow({
-    width: 1200,
-    height: 600,
+    width: 700,
+    height: 800,
     webPreferences: {
       nodeIntegration: true,
       backgroundThrottling: false
@@ -26,7 +28,7 @@ function createWindow() {
     })
   );
 
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   win.on("closed", () => {
     win = null;
@@ -42,7 +44,6 @@ app.on("window-all-closed", () => {
 });
 
 app.on("activate", () => {
-  Menu.setApplicationMenu(false);
   if (win === null) {
     createWindow();
   }

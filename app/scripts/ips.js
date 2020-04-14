@@ -47,7 +47,7 @@ class ips {
                     .replace('<%= require("./../../svg/color.svg") %>', colorSvg)
 
 
-                event.sender.send('generated', replacedTemplate);
+                event.sender.send('generate-finished', replacedTemplate);
 
             } catch (e) {
                 event.sender.send('generate-error');

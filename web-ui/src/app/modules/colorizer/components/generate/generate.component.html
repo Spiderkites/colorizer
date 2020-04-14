@@ -9,5 +9,5 @@
 
 <mat-form-field class="template-output">
     <mat-label>Template</mat-label>
-    <textarea matInput [readonly]="true" [value]="uploadService.template$ | async"></textarea>
+    <textarea matInput [readonly]="true" [value]="uploadService.template$ | async" [matTextareaAutosize]="true" [matAutosizeMinRows]="5" [matAutosizeMaxRows]="15"></textarea>
 </mat-form-field>
