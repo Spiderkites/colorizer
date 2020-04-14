@@ -1,0 +1,23 @@
+:host {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+
+    .title {
+        margin: 16px;
+        min-width: 55px;
+    }
+
+    .chosen-path {
+        flex: 1;
+        min-width: 0;
+        margin: 16px;
+        p{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+            margin: unset;
+        }
+    }
+}

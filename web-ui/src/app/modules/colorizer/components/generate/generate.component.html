@@ -1,0 +1,13 @@
+<div class="actions">
+    <button mat-raised-button color="primary"
+        [disabled]="(uploadService.productFilePath$| async) === undefined || (uploadService.colorFilePath$| async) === undefined"
+        (click)='uploadService.generate()'>Generate</button>
+
+    <button mat-stroked-button [disabled]="(uploadService.template$| async).length < 1"
+        [cdkCopyToClipboard]="uploadService.template$ | async" (click)="openSnackBar('In Zwischenablage kopiert')">Copy</button>
+</div>
+
+<mat-form-field class="template-output">
+    <mat-label>Template</mat-label>
+    <textarea matInput [readonly]="true" [value]="uploadService.template$ | async" [matTextareaAutosize]="true" [matAutosizeMinRows]="5" [matAutosizeMaxRows]="15"></textarea>
+</mat-form-field>

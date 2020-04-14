@@ -1,0 +1,16 @@
+{
+  "name": "spiderkites",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "electron": "electron .",
+    "electron:build": " electron-packager . Spiderkites --out=platforms/win  --platform=win32 --arch=x64  --icon=images/favicon.ico --asar=true --overwrite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^8.2.1",
+    "electron-packager": "^14.2.1"
+  }
+}
