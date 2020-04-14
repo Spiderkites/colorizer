@@ -29,6 +29,8 @@ class ips {
                 this.window.focusOnWebView();
 
                 event.sender.send('file-uploaded', type, dialogResponse.filePaths[0]);
+            } else {
+                event.sender.send('filechooser-canceld');
             }
         })
     }

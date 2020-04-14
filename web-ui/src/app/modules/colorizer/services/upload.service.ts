@@ -40,6 +40,14 @@ export class UploadService {
 
     });
 
+    ipcRenderer.on('filechooser-canceld', () => {
+      this.zone.run(() => {
+        this._isPending$.next(false);
+        console.log('enabled time travel');
+      });
+
+    });
+
     ipcRenderer.on('generate-finished', (event, colorizerHtml) => {
       this._template$.next(colorizerHtml);
 
