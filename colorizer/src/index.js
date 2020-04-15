@@ -1,7 +1,16 @@
 import download from './download/donwload.js';
 import colorizer from './colorizer/colorizer.js';
 
-document.addEventListener('DOMContentLoaded', init, false);
+//document.addEventListener('DOMContentLoaded', init, false);
+
+const inter = setInterval(()=> {
+    const isLoaded = !!document.getElementById('spiderkites-colorizer');
+
+    if(isLoaded){
+        clearInterval(inter);
+        init();
+    }
+}, 250);
 
 
 function init(){
