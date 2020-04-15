@@ -2,8 +2,16 @@ import * as d3 from "d3";
 
 export default function () {
 
+    /*temp bis neues Template*/
+    d3.selectAll('#spiderkites-colorizer > div').style('margin', '1rem');
+
     const kiteSvg = d3.select('#kite svg');
-    const parts = d3.selectAll(".polygon");
+
+    const kiteStyle = kiteSvg.select('defs style');
+
+    kiteStyle.html(kiteStyle.html().replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)'))
+    kiteSvg.selectAll(".cls-1").classed('cls-1', false);
+    const parts = kiteSvg.selectAll("g polygon");
 
     let activeColor = undefined;
 
