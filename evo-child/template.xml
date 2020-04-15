@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Template isFullResponsive="true">
+    <Name>Evo-Child-Vorlage (durch den eigenen Namen ersetzen)</Name>
+    <Author>JTL-Software-GmbH</Author>
+    <URL>http://jtl-software.de</URL>
+    <Parent>Evo</Parent>
+    <Preview>preview.png</Preview>
+    <Description>Dieses Template dient als Vorlage für eigenes Child-Template des Evo.</Description>
+    <Settings>
+        <Section Name="Theme" Key="theme">
+            <Setting Description="Theme" Key="theme_default" Type="select" Value="my-evo" override="true">
+                <Option Value="my-evo">My Evo - mein eigenes Evo-Theme!</Option>
+            </Setting>
+        </Section>
+    </Settings>
+    <Minify>
+        <CSS Name="my-evo.css">
+            <File Path="./themes/my-evo/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="css/mytheme.css"/>
+        </CSS>
+         <JS Name="spiderkites.js">
+            <File Path="js/jquery.touch.min.js"/>
+        </JS>
+    </Minify>
+    <Boxes>
+        <Container Position="left" Available="1" />
+        <Container Position="right" Available="0" />
+        <Container Position="top" Available="0" />
+        <Container Position="bottom" Available="1" />
+    </Boxes>
+</Template>
