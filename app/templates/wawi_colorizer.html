@@ -1,5 +1,5 @@
 <div id="spiderkites-colorizer">
-    <div id="kite-template" class="row m-3">
+    <div id="kite-template" class="row m-3" style="margin: 1rem;">
 
         <div id="kite" class="col">
             <%= require("./../../svg/product.svg") %>
@@ -7,15 +7,29 @@
 
     </div>
 
-    <div class="row m-3">
+    <div class="row m-3" style="margin: 1rem;">
         <div class="col">
-            <button onclick='fileDownload()' class="btn btn-default btn-secondary">Save</button>
+            <div id="product-actions" class="btn-group btn-group-md product-actions hidden-print" role="group">
+                <button onclick='fileDownload()' class="btn btn-default btn-secondary">
+                    <span class="fa fa-download"></span>
+                    <span class="hidden-sm">Download</span>  
+                </button>
+                <button id="clear-btn" class="btn btn-default btn-secondary">
+                    <span class="fa fa-undo"></span>
+                    <span class="hidden-sm">Clear</span>
+                </button>
+                <label class="btn btn-default btn-secondary" style="margin-bottom: unset;">
+                    <input id="symmetrical-checkbox" type="checkbox"> Symmetrisch
+                </label>
+            </div>
+
         </div>
     </div>
 
-    <div id="color-palet" class="row m-3" style="user-select: none;">
+    <div id="color-palet" class="row m-3" style="user-select: none; margin: 1rem;">
         <div class="col">
             <%= require("./../../svg/color.svg") %>
         </div>
     </div>
+
 </div>
