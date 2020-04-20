@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server &",
     "start:dev": "webpack-dev-server",
-    "build": " webpack --config webpack.config.js"
+    "build": " webpack --config webpack.config.js && cp ./src/templates/wawi_colorizer.html ./../app/templates/wawi_colorizer.html && cp  ./dist/main.js  ./../evo-child/js/custom.js"
   },
   "author": "",
   "license": "ISC",
