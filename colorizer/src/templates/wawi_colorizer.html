@@ -9,7 +9,11 @@
 
     <div class="row m-3" style="margin: 1rem;">
         <div class="col">
-            <button onclick='fileDownload()' class="btn btn-default btn-secondary">Save</button>
+            <div id="product-actions" class="btn-group btn-group-md product-actions hidden-print" role="group">
+                <button onclick='fileDownload()' class="btn btn-default btn-secondary">Download</button>
+                <button id="clear-btn" class="btn btn-default btn-secondary">Clear</button>
+            </div>
+           
         </div>
     </div>
 

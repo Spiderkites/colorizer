@@ -7,10 +7,12 @@ export default function () {
 
     const kiteSvg = d3.select('#kite svg');
 
+    // cleanup svg
     const kiteStyle = kiteSvg.select('defs style');
-
     kiteStyle.html(kiteStyle.html().replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)'))
     kiteSvg.selectAll(".cls-1").classed('cls-1', false);
+
+
     const parts = kiteSvg.selectAll("g polygon");
 
     let activeColor = undefined;
@@ -41,6 +43,14 @@ export default function () {
             if (isInside && activeColor) {
                 part.transition().style("fill", activeColor.style('fill'));
             }
+        })
+    })
+
+    initButton('#clear-btn', () => {
+        parts.each(function () {
+            const part = d3.select(this);
+            part.transition().style("fill", 'rgb(255, 255, 255)');
+
         })
     })
 }
@@ -76,4 +86,8 @@ function getPolygonFromElement(element) {
 
         return polygon
     }
+}
+
+function initButton(id, fn) {
+    d3.select(id).on('click', fn);
 }
