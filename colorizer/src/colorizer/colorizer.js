@@ -1,107 +1,124 @@
 import * as d3 from "d3";
 
-export default function () {
+import download from './../download/donwload.js';
 
-    // temp
-    let symmetrical = false;
+class Colorizer {
+    constructor() {
+        this.productSvg = d3.select('#product svg');
+        this.productParts = this.productSvg.selectAll("g polygon");
 
-    /*temp bis neues Template*/
-    d3.selectAll('#spiderkites-colorizer > div').style('margin', '1rem');
+        this.symmetrical = false;
+        this.activeColor = undefined;
+        this.lang = document.documentElement.lang || 'en';
 
-    const kiteSvg = d3.select('#kite svg');
-
-    // cleanup svg
-    const kiteStyle = kiteSvg.select('defs style');
-    kiteStyle.html(kiteStyle.html().replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)'))
-    kiteSvg.selectAll(".cls-1").classed('cls-1', false);
-
-
-    const parts = kiteSvg.selectAll("g polygon");
-
-    let activeColor = undefined;
-
-    const colorArray = d3.selectAll("#color-palet rect")
-        .style('cursor', 'pointer')
-        .on('click', function () {
-            const color = d3.select(this);
-            if (activeColor) {
-                activeColor.style('stroke', null);
-                activeColor.style('stroke-width', null);
-            }
-
-            activeColor = color;
-
-            activeColor.style('stroke', "#474747");
-            activeColor.style('stroke-width', "1.5px");
-        })
-
-    kiteSvg.on('click', function () {
-        var mousePosition = d3.mouse(this);
-
-        parts.each(function () {
-            const part = d3.select(this);
-            const polygon = getPolygonFromElement(part);
-            const isInside = inside(mousePosition, polygon);
-
-            if (isInside && activeColor) {
-                if(symmetrical){
-                    const parent = d3.select(this.parentNode);
-                    parent.selectAll('polygon').transition().style("fill", activeColor.style('fill'));
-                } else {
-                    part.transition().style("fill", activeColor.style('fill'));
-
-                }
-            }
-        })
-    })
-
-    initButton('#clear-btn', () => {
-        parts.each(function () {
-            const part = d3.select(this);
-            part.transition().style("fill", 'rgb(255, 255, 255)');
-
-        })
-    })
-
-    d3.select("#symmetrical-checkbox").on("change", ()=>{
-        console.log("afsdafsdf", symmetrical);
-        symmetrical = !symmetrical;
-    });
-}
-
-function inside(point, vs) {
-    // ray-casting algorithm based on
-    // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
-
-    var x = point[0], y = point[1];
-
-    var inside = false;
-    for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-        var xi = vs[i][0], yi = vs[i][1];
-        var xj = vs[j][0], yj = vs[j][1];
-
-        var intersect = ((yi > y) != (yj > y))
-            && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
-        if (intersect) inside = !inside;
+        this.cleanUpProductSvg();
+        this.initProduct();
+        this.initColor();
+        this.initButtons();
     }
 
-    return inside;
-};
+    cleanUpProductSvg() {
+        const productStyle = this.productSvg.select('defs style');
+        productStyle.html(productStyle.html().replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)'))
+        this.productSvg.selectAll(".cls-1").classed('cls-1', false);
+    }
 
-function getPolygonFromElement(element) {
-    const pointsString = element.attr('points');
+    initProduct() {
+        const that = this;
 
-    if (pointsString) {
-        const pointArray = pointsString.split(' ');
-        let polygon = [];
-        for (let i = 0; i < pointArray.length; i += 2) {
-            polygon.push([+pointArray[i], +pointArray[i + 1]]);
+        this.productSvg.on('click', function () {
+            var mousePosition = d3.mouse(this);
+
+            that.productParts.each(function () {
+                const part = d3.select(this);
+                const polygon = that._getPolygonFromElement(part);
+                const isInside = that._inside(mousePosition, polygon);
+
+                if (isInside && that.activeColor) {
+                    if (that.symmetrical) {
+                        const parent = d3.select(this.parentNode);
+                        parent.selectAll('polygon').transition().style("fill", that.activeColor.style('fill'));
+                    } else {
+                        part.transition().style("fill", that.activeColor.style('fill'));
+                    }
+                }
+            })
+        })
+    }
+
+    initColor() {
+        const that = this;
+        d3.selectAll("#color-palet rect")
+            .style('cursor', 'pointer')
+            .on('click', function () {
+                const color = d3.select(this);
+                if (that.activeColor) {
+                    that.activeColor.style('stroke', null);
+                    that.activeColor.style('stroke-width', null);
+                }
+
+                that.activeColor = color;
+
+                that.activeColor.style('stroke', "#474747");
+                that.activeColor.style('stroke-width', "1.5px");
+            })
+    }
+
+    initButtons() {
+        // Clear Button
+        d3.select('#clear-btn').on('click', () => {
+            this.productParts.each(function () {
+                const part = d3.select(this);
+                part.transition().style("fill", 'rgb(255, 255, 255)');
+
+            })
+        });
+
+        // Download Button
+        d3.select('#download-btn').on('click', () => {
+            download("kite.svg", this.productSvg.node().outerHTML);
+        });
+
+        // Symetrical Checkbox
+        d3.select("#symmetrical-checkbox").on("change", () => {
+            this.symmetrical = !this.symmetrical;
+        });
+    }
+
+
+
+    _inside(point, vs) {
+        // ray-casting algorithm based on
+        // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
+
+        var x = point[0], y = point[1];
+
+        var inside = false;
+        for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+            var xi = vs[i][0], yi = vs[i][1];
+            var xj = vs[j][0], yj = vs[j][1];
+
+            var intersect = ((yi > y) != (yj > y))
+                && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+            if (intersect) inside = !inside;
         }
 
-        return polygon
+        return inside;
+    };
+
+    _getPolygonFromElement(element) {
+        const pointsString = element.attr('points');
+
+        if (pointsString) {
+            const pointArray = pointsString.split(' ');
+            let polygon = [];
+            for (let i = 0; i < pointArray.length; i += 2) {
+                polygon.push([+pointArray[i], +pointArray[i + 1]]);
+            }
+
+            return polygon
+        }
     }
 }
 
-function initButton(id, fn) {
-    d3.select(id).on('click', fn);
-}
+export default Colorizer;
