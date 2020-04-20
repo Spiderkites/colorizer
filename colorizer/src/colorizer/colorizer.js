@@ -2,6 +2,9 @@ import * as d3 from "d3";
 
 export default function () {
 
+    // temp
+    const symmetrical = true;
+
     /*temp bis neues Template*/
     d3.selectAll('#spiderkites-colorizer > div').style('margin', '1rem');
 
@@ -41,7 +44,13 @@ export default function () {
             const isInside = inside(mousePosition, polygon);
 
             if (isInside && activeColor) {
-                part.transition().style("fill", activeColor.style('fill'));
+                if(symmetrical){
+                    const parent = d3.select(this.parentNode);
+                    parent.selectAll('polygon').style("fill", activeColor.style('fill'));
+                } else {
+                    part.transition().style("fill", activeColor.style('fill'));
+
+                }
             }
         })
     })
