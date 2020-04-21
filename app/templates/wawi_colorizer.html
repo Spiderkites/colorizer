@@ -1,7 +1,7 @@
 <div id="spiderkites-colorizer">
-    <div id="kite-template" class="row m-3" style="margin: 1rem;">
+    <div id="product" class="row m-3" style="margin: 1rem;">
 
-        <div id="kite" class="col">
+        <div  class="col">
             <%= require("./../../svg/product.svg") %>
         </div>
 
@@ -10,7 +10,7 @@
     <div class="row m-3" style="margin: 1rem;">
         <div class="col">
             <div id="product-actions" class="btn-group btn-group-md product-actions hidden-print" role="group">
-                <button onclick='fileDownload()' class="btn btn-default btn-secondary">
+                <button id="download-btn" class="btn btn-default btn-secondary">
                     <span class="fa fa-download"></span>
                     <span class="hidden-sm">Download</span>  
                 </button>

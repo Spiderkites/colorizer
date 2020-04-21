@@ -41,9 +41,11 @@ class ips {
             try {
                 this.window.focusOnWebView();
 
-                const productSvg = await readFile(productPath);
+                let productSvg = await readFile(productPath);
                 const colorSvg = await readFile(colorPath);
                 const template = await readFile(path.join(__dirname, '../templates/wawi_colorizer.html'));
+
+                productSvg = productSvg.replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)').replace(/class=\"cls-1\"/g, '');
 
                 let replacedTemplate = template.replace('<%= require("./../../svg/product.svg") %>', productSvg)
                     .replace('<%= require("./../../svg/color.svg") %>', colorSvg)
@@ -52,7 +54,7 @@ class ips {
                 event.sender.send('generate-finished', replacedTemplate);
 
             } catch (e) {
-                event.sender.send('generate-error');
+                event.sender.send('generate-error', e);
             }
         })
     }
