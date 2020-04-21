@@ -9,7 +9,7 @@ class Colorizer {
 
         this.symmetrical = false;
         this.activeColor = undefined;
-        this.lang = document.documentElement.lang || 'en';
+
 
         if(!production){
             this.cleanUpProductSvg();
