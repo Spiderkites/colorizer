@@ -16,8 +16,13 @@ export default class i18n {
 
     translate(id) {
         const element = d3.select(`#${id}`);
-        const key = element.text();
+        const key = element.text().trim();
 
-        element.text(this[this.lang][key]);
+        const translation = this[this.lang][key];
+
+        if(translation){
+            element.text(translation);
+        }
+
     }
 }

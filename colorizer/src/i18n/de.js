@@ -1,5 +1,5 @@
 export default {
     "DOWNLOAD": "Download",
-    "CLEAR": "zurücktesten",
+    "CLEAR": "Zurückseten",
     "SYMMETRICAL": " Symmetrisch"
 }
