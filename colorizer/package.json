@@ -11,13 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "html-webpack-plugin": "^4.0.4",
-    "svg-inline-loader": "^0.8.2",
+    "html-webpack-plugin": "4.0.4",
+    "svg-inline-loader": "0.8.2",
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "3.10.3"
   },
   "dependencies": {
-    "d3": "^5.15.1"
+    "d3": "5.15.1"
   }
 }
