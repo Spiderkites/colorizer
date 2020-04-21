@@ -13,5 +13,5 @@ const inter = setInterval(() => {
 
 
 function init() {
-    new Colorizer();
+    new Colorizer(PRODUCTION);
 }

@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import download from './../download/donwload.js';
 
 class Colorizer {
-    constructor() {
+    constructor(production) {
         this.productSvg = d3.select('#product svg');
         this.productParts = this.productSvg.selectAll("g polygon");
 
@@ -11,7 +11,10 @@ class Colorizer {
         this.activeColor = undefined;
         this.lang = document.documentElement.lang || 'en';
 
-        this.cleanUpProductSvg();
+        if(!production){
+            this.cleanUpProductSvg();
+        }
+        
         this.initProduct();
         this.initColor();
         this.initButtons();
@@ -48,6 +51,7 @@ class Colorizer {
 
     initColor() {
         const that = this;
+
         d3.selectAll("#color-palet rect")
             .style('cursor', 'pointer')
             .on('click', function () {
