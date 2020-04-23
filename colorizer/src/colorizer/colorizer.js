@@ -20,6 +20,9 @@ class Colorizer {
 
         this.initColor();
         this.initButtons();
+
+        //Show DOM
+        d3.select('#spiderkites-colorizer').transition().style('opacity', '1');
     }
 
     cleanUpProductSvg() {
