@@ -2,6 +2,6 @@ export default {
     "DOWNLOAD": "Download",
     "SAVE": "Speichern",
     "CLEAR": "Zurückseten",
-    "LOAD": "Laden",
+    "LOAD": "Öffnen",
     "SYMMETRICAL": " Symmetrisch"
 }

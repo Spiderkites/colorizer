@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import de from "./de";
 import en from "./en";
 
-const translations = ['download-btn-text','save-btn-text','load-btn', 'clear-btn-text', 'symmetrical-checkbox-text'];
+const translations = ['download-btn-text','save-btn-text','load-btn-text', 'clear-btn-text', 'symmetrical-checkbox-text'];
 
 export default class i18n {
     constructor() {
