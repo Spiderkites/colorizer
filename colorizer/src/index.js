@@ -9,7 +9,7 @@ const interval = setInterval(() => {
 
     if (isLoaded) {
         clearInterval(interval);
-        init();
+        window.initColorizer();
     } else if (retry >= maxRetries) {
         clearInterval(interval);
     } else {
@@ -18,8 +18,8 @@ const interval = setInterval(() => {
 
 }, 50);
 
-
-function init() {
+window.initColorizer = function (){
     const _i18n = new i18n();
-    new Colorizer(PRODUCTION, _i18n);
+    new Colorizer(PRODUCTION, _i18n)
 }
+
