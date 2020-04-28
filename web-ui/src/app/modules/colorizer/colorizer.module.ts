@@ -5,13 +5,13 @@ import { ColorizerRoutingModule } from './colorizer-routing.module';
 import { ColorizerComponent } from './colorizer.component';
 import { UploadComponent } from './components/upload/upload.component';
 
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatInputModule} from '@angular/material/input';
-import {ClipboardModule} from '@angular/cdk/clipboard';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatInputModule } from '@angular/material/input';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { GenerateComponent } from './components/generate/generate.component';
 
 

@@ -3,10 +3,12 @@ const ipcRenderer = (<any>window).require('electron').ipcRenderer;
 
 import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UploadService {
 
   private _productFilePath$ = new BehaviorSubject<string>(undefined);
@@ -20,7 +22,7 @@ export class UploadService {
   isPending$ = this._isPending$.asObservable();
 
 
-  constructor(private zone: NgZone) {
+  constructor(private zone: NgZone, private _snackBar: MatSnackBar) {
     this.initIpc();
   }
 
@@ -35,7 +37,6 @@ export class UploadService {
 
       this.zone.run(() => {
         this._isPending$.next(false);
-        console.log('enabled time travel');
       });
 
     });
@@ -43,7 +44,6 @@ export class UploadService {
     ipcRenderer.on('filechooser-canceld', () => {
       this.zone.run(() => {
         this._isPending$.next(false);
-        console.log('enabled time travel');
       });
 
     });
@@ -53,8 +53,11 @@ export class UploadService {
 
       this.zone.run(() => {
         this._isPending$.next(false);
-        console.log('enabled time travel');
       });
+    })
+
+    ipcRenderer.on('generate-error', (event, error) => {
+      this._snackBar.open(error, 'Error', { duration: 5000 });
     })
   }
 

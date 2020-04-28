@@ -1,15 +1,24 @@
-import download from './download/donwload.js';
-import colorizer from './colorizer/colorizer.js';
+import Colorizer from './colorizer/colorizer.js';
+import i18n from './i18n/i18n';
 
-document.addEventListener('DOMContentLoaded', init, false);
+const maxRetries = 10;
+let retry = 0;
 
-
-function init(){
-    
-    colorizer();
-
-    window.fileDownload = function () {
-        const kiteSvg = document.getElementById("kite-template");
-        download("kite.svg", kiteSvg.innerHTML);
+const interval = setInterval(() => {
+    const isLoaded = !!document.getElementById('spiderkites-colorizer');
+    if (isLoaded) {
+        window.initColorizer();
+    } else if (retry >= maxRetries) {
+        clearInterval(interval);
+    } else {
+        retry++;
     }
+
+}, 50);
+
+window.initColorizer = function (){
+    clearInterval(interval);
+    const _i18n = new i18n();
+    new Colorizer(PRODUCTION, _i18n)
 }
+

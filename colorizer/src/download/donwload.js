@@ -1,5 +1,5 @@
 export default function (filename, text) {
-  var element = document.createElement('a');
+  let element = document.createElement('a');
   element.setAttribute('href', 'data:image/svg+xml;utf8,' + encodeURIComponent(text));
   element.setAttribute('download', filename);
 
