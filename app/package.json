@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "electron": "electron .",
-    "electron:build": " electron-packager . Spiderkites --out=platforms/win  --platform=win32 --arch=x64  --icon=images/favicon.ico --asar=true --overwrite"
+    "electron:build": "electron-packager . Spiderkites --out=platforms/win  --platform=win32 --arch=x64  --icon=images/favicon.ico --asar=true --overwrite"
   },
   "author": "",
   "license": "ISC",

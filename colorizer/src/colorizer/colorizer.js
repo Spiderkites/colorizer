@@ -2,22 +2,29 @@ import * as d3 from "d3";
 
 import download from './../download/donwload.js';
 
+import SaveService from './saveService';
+
+
 class Colorizer {
-    constructor(production) {
-        this.productSvg = d3.select('#product svg');
-        this.productParts = this.productSvg.selectAll("g polygon");
+    constructor(production, i18n) {
+        this.i18n = i18n;
+        this.SaveService = new SaveService();
+
+        this.initProduct();
 
         this.symmetrical = false;
         this.activeColor = undefined;
 
 
-        if(!production){
+        if (!production) {
             this.cleanUpProductSvg();
         }
-        
-        this.initProduct();
+
         this.initColor();
         this.initButtons();
+
+        //Show DOM
+        d3.select('#spiderkites-colorizer').transition().style('opacity', '1');
     }
 
     cleanUpProductSvg() {
@@ -26,7 +33,13 @@ class Colorizer {
         this.productSvg.selectAll(".cls-1").classed('cls-1', false);
     }
 
+
+
     initProduct() {
+        this.productSvg = d3.select('#product svg');
+        this.productParts = this.productSvg.selectAll("g polygon");
+        this.productUUID = d3.select('#product').attr('uuid');
+
         const that = this;
 
         this.productSvg.on('click', function () {
@@ -83,13 +96,40 @@ class Colorizer {
             download("kite.svg", this.productSvg.node().outerHTML);
         });
 
+        //Save Button
+        d3.select('#save-btn').on('click', () => {
+            this.SaveService.setItem(this.productUUID, this.productSvg.node().outerHTML);
+        });
+
+        //Load Button
+        d3.select('#load-btn').on('click', () => {
+            const item = this.SaveService.getItem(this.productUUID);
+            if(item){
+                if(confirm(this.i18n.translate('CONFIRM_DIALOG'))){
+                    this.loadSvg(item);
+                }
+            } else {
+                alert(this.i18n.translate('NO_ITEM_FOUND_DIALOG'))
+            }
+
+
+        });
+
         // Symetrical Checkbox
         d3.select("#symmetrical-checkbox").on("change", () => {
             this.symmetrical = !this.symmetrical;
         });
     }
 
+    loadSvg(svg) {
+        this._destroyListener();
+        d3.select("#product div").html(svg);
+        this.initProduct();
+    }
 
+    _destroyListener() {
+        this.productSvg.on('click', null);
+    }
 
     _inside(point, vs) {
         // ray-casting algorithm based on
