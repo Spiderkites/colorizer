@@ -6,9 +6,7 @@ let retry = 0;
 
 const interval = setInterval(() => {
     const isLoaded = !!document.getElementById('spiderkites-colorizer');
-
     if (isLoaded) {
-        clearInterval(interval);
         window.initColorizer();
     } else if (retry >= maxRetries) {
         clearInterval(interval);
@@ -19,6 +17,7 @@ const interval = setInterval(() => {
 }, 50);
 
 window.initColorizer = function (){
+    clearInterval(interval);
     const _i18n = new i18n();
     new Colorizer(PRODUCTION, _i18n)
 }
