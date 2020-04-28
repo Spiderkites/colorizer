@@ -5,12 +5,11 @@
   "main": "main.js",
   "scripts": {
     "electron": "electron .",
-    "electron:build": "electron-packager . Spiderkites --out=platforms/win  --platform=win32 --arch=x64  --icon=images/favicon.ico --asar=true --overwrite && npx bestzip ./platforms/win/Spiderkites-win32-x64.zip ./platforms/win/Spiderkites-win32-x64 && rm -r ./platforms/win/Spiderkites-win32-x64"
+    "electron:build": "electron-packager . Spiderkites --out=platforms/win  --platform=win32 --arch=x64  --icon=images/favicon.ico --asar=true --overwrite"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bestzip": "^2.1.5",
     "electron": "^8.2.1",
     "electron-packager": "^14.2.1"
   }
