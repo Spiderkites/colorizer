@@ -4,8 +4,10 @@ import download from './../download/donwload.js';
 
 import SaveService from './saveService';
 
+
 class Colorizer {
-    constructor(production) {
+    constructor(production, i18n) {
+        this.i18n = i18n;
         this.SaveService = new SaveService();
 
         this.initProduct();
@@ -101,7 +103,10 @@ class Colorizer {
 
         //Load Button
         d3.select('#load-btn').on('click', () => {
-            this.loadSvg(this.SaveService.getItem(this.productUUID));
+            if(confirm(this.i18n.translate('CONFIRM_DIALOG'))){
+                this.loadSvg(this.SaveService.getItem(this.productUUID));
+            }
+            
         });
 
         // Symetrical Checkbox

@@ -20,6 +20,6 @@ const interval = setInterval(() => {
 
 
 function init() {
-    new i18n();
-    new Colorizer(PRODUCTION);
+    const _i18n = new i18n();
+    new Colorizer(PRODUCTION, _i18n);
 }
