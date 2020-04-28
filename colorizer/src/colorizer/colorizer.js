@@ -103,10 +103,16 @@ class Colorizer {
 
         //Load Button
         d3.select('#load-btn').on('click', () => {
-            if(confirm(this.i18n.translate('CONFIRM_DIALOG'))){
-                this.loadSvg(this.SaveService.getItem(this.productUUID));
+            const item = this.SaveService.getItem(this.productUUID);
+            if(item){
+                if(confirm(this.i18n.translate('CONFIRM_DIALOG'))){
+                    this.loadSvg(item);
+                }
+            } else {
+                alert(this.i18n.translate('NO_ITEM_FOUND_DIALOG'))
             }
-            
+
+
         });
 
         // Symetrical Checkbox

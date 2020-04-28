@@ -4,5 +4,6 @@ export default {
     "CLEAR": "Clear",
     "LOAD": "Open",
     "SYMMETRICAL": " Symmetrical",
-    "CONFIRM_DIALOG": "If you load a saved state, unsaved changes are lost!"
+    "CONFIRM_DIALOG": "If you load a saved state, unsaved changes are lost!",
+    "NO_ITEM_FOUND_DIALOG": "  No saved file was found."
 }
