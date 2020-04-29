@@ -10,6 +10,21 @@
         <Section Name="Theme" Key="theme">
             <Setting Description="Theme" Key="theme_default" Type="select" Value="my-evo" override="true">
                 <Option Value="my-evo">My Evo - mein eigenes Evo-Theme!</Option>
+				<Option Value="bootstrap">Bootstrap - Standard Bootstrap</Option>
+                <Option Value="cerulean">Cerulean - Ein blauer, ruhiger Himmel</Option>
+                <Option Value="cosmo">Cosmo - Eine Ode an Metro</Option>
+                <Option Value="cyborg">Cyborg - Samtes Schwarz und elektrisches Blau</Option>
+                <Option Value="darkly">Darkly - Flat im Nachtmodus</Option>
+                <Option Value="flatly">Flatly - Flat und modern</Option>
+                <Option Value="journal">Journal - Frisch wie ein neues Blatt Papier</Option>
+                <Option Value="lumen">Lumen - Licht und Schatten</Option>
+                <Option Value="paper">Paper - Material ist die Metapher</Option>
+                <Option Value="sandstone">Sandstone - Ein Hauch W<![CDATA[&auml;]]>rme</Option>
+                <Option Value="simplex">Simplex - Klein und minimalistisch</Option>
+                <Option Value="slate">Slate - (50) Shades of gunmetal gray</Option>
+                <Option Value="spacelab">Spacelab - Silbern und schnittig</Option>
+                <Option Value="united">United - Ubuntu-Orange und einzigartige Schrift</Option>
+                <Option Value="yeti">Yeti - Eine nette Grundlage</Option>
             </Setting>
         </Section>
     </Settings>
@@ -20,6 +35,111 @@
             <File Path="../Evo/themes/base/pnotify.custom.css"/>
             <File Path="../Evo/themes/base/jquery-slider.css"/>
             <File Path="css/mytheme.css"/>
+        </CSS>
+		<CSS Name="cerulean.css">
+            <File Path="../Evo/themes/cerulean/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/cerulean/custom.css"/>
+        </CSS>
+        <CSS Name="cosmo.css">
+            <File Path="../Evo/themes/cosmo/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+		</CSS>
+        <CSS Name="bootstrap.css">
+            <File Path="../Evo/themes/bootstrap/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/bootstrap/custom.css"/>>
+            <File Path="../Evo/themes/cosmo/custom.css"/>
+        </CSS>
+        <CSS Name="cyborg.css">
+            <File Path="../Evo/themes/cyborg/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/cyborg/custom.css"/>
+        </CSS>
+        <CSS Name="darkly.css">
+            <File Path="../Evo/themes/darkly/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/darkly/custom.css"/>
+        </CSS>
+        <CSS Name="flatly.css">
+            <File Path="../Evo/themes/flatly/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/	themes/flatly/custom.css"/>
+        </CSS>
+        <CSS Name="journal.css">
+            <File Path="../Evo/themes/journal/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/journal/custom.css"/>
+        </CSS>
+        <CSS Name="lumen.css">
+            <File Path="../Evo/themes/lumen/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/lumen/custom.css"/>
+        </CSS>
+        <CSS Name="paper.css">
+            <File Path="../Evo/themes/paper/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/paper/custom.css"/>
+        </CSS>
+        <CSS Name="sandstone.css">
+            <File Path="../Evo/themes/sandstone/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/sandstone/custom.css"/>
+        </CSS>
+        <CSS Name="simplex.css">
+            <File Path="../Evo/themes/simplex/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/simplex/custom.css"/>
+        </CSS>
+        <CSS Name="slate.css">
+            <File Path="../Evo/themes/slate/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/slate/custom.css"/>
+        </CSS>
+        <CSS Name="spacelab.css">
+            <File Path="../Evo/themes/spacelab/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/spacelab/custom.css"/>
+        </CSS>
+        <CSS Name="united.css">
+            <File Path="../Evo/themes/united/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/united/custom.css"/>
+        </CSS>
+        <CSS Name="yeti.css">
+            <File Path="../Evo/themes/yeti/bootstrap.css"/>
+            <File Path="../Evo/themes/base/offcanvas-menu.css"/>
+            <File Path="../Evo/themes/base/pnotify.custom.css"/>
+            <File Path="../Evo/themes/base/jquery-slider.css"/>
+            <File Path="../Evo/themes/yeti/custom.css"/>
         </CSS>
     </Minify>
     <Boxes>
