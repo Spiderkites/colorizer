@@ -1,6 +1,6 @@
 /*
- * Platz fÃ¼r eigene Ã„nderungen direkt als CSS
- * Die hier gemachten Ã„nderungen Ã¼berschreiben ggfs. andere Styles, da diese Datei als letzte geladen wird.
+ * Platz für eigene Änderungen direkt als CSS
+ * Die hier gemachten Änderungen überschreiben ggfs. andere Styles, da diese Datei als letzte geladen wird.
  */
 
 h1,
@@ -32,6 +32,16 @@ h6,
     color: #2c2c2c;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default .navbar-nav>li>a {
     color: #000;
 }
+
+.cart-menu>.dropdown-toggle>.badge, .action-nav>li>a>.badge{
+	position: unset !important;
+	margin-left: 2px;
+}
+
+.cart-menu>.dropdown-toggle>.badge>em, .action-nav>li>a>.badge>em {
+	font-style: normal;
+}
+
