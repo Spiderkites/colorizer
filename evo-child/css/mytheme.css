@@ -2,3 +2,32 @@
  * Platz für eigene Änderungen direkt als CSS
  * Die hier gemachten Änderungen überschreiben ggfs. andere Styles, da diese Datei als letzte geladen wird.
  */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    line-height: 1.1;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif !important;;
+    color: #313131;
+    font-weight: 400;
+}
+
+.price {
+    font-size: 18px;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif !important;;
+}
+
+.text-muted {
+    color: #2c2c2c !important;
+}
