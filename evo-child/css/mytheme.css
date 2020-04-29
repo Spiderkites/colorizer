@@ -1,6 +1,6 @@
 /*
- * Platz für eigene Änderungen direkt als CSS
- * Die hier gemachten Änderungen überschreiben ggfs. andere Styles, da diese Datei als letzte geladen wird.
+ * Platz fÃ¼r eigene Ã„nderungen direkt als CSS
+ * Die hier gemachten Ã„nderungen Ã¼berschreiben ggfs. andere Styles, da diese Datei als letzte geladen wird.
  */
 
 h1,
@@ -18,16 +18,20 @@ h6,
     line-height: 1.1;
     padding-bottom: 5px;
     margin-bottom: 30px;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif !important;;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: #313131;
     font-weight: 400;
 }
 
 .price {
     font-size: 18px;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif !important;;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 .text-muted {
-    color: #2c2c2c !important;
+    color: #2c2c2c;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #000;
 }
