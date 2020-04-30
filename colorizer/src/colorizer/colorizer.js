@@ -12,7 +12,7 @@ class Colorizer {
 
         this.initProduct();
 
-        this.symmetrical = false;
+        this.symmetrical = true;
         this.activeColor = undefined;
 
 
