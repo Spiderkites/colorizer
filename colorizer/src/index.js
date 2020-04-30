@@ -22,3 +22,8 @@ window.initColorizer = function (){
     new Colorizer(PRODUCTION, _i18n)
 }
 
+
+$('#myModal').on('shown.bs.modal', function () {
+    console.log("fsdsdg");
+    $('#myInput').focus()
+  })
