@@ -12,7 +12,7 @@ class Colorizer {
 
         this.initProduct();
 
-        this.symmetrical = false;
+        this.symmetrical = true;
         this.activeColor = undefined;
 
 
@@ -99,6 +99,7 @@ class Colorizer {
         //Save Button
         d3.select('#save-btn').on('click', () => {
             this.SaveService.setItem(this.productUUID, this.productSvg.node().outerHTML);
+            alert(this.i18n.translate('SUCCESS_SAVE_DIALOG'));
         });
 
         //Load Button
@@ -109,7 +110,7 @@ class Colorizer {
                     this.loadSvg(item);
                 }
             } else {
-                alert(this.i18n.translate('NO_ITEM_FOUND_DIALOG'))
+                alert(this.i18n.translate('NO_ITEM_FOUND_DIALOG'));
             }
 
 
