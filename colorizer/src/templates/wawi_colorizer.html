@@ -28,7 +28,7 @@
                     <span translate class="hidden-sm">CLEAR</span>
                 </button>
                 <label class="btn btn-default btn-secondary" style="margin-bottom: unset;">
-                    <input id="symmetrical-checkbox" type="checkbox" style="margin: unset;">
+                    <input id="symmetrical-checkbox" type="checkbox" checked style="margin: unset;">
                     <span translate>SYMMETRICAL</span>
                 </label>
                 <button type="button" class="btn btn-default btn-secondar" data-toggle="modal" data-target="#myModal">
@@ -36,6 +36,8 @@
                 </button>
 
             </div>
+
+
 
         </div>
     </div>
@@ -61,35 +63,43 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">HELP</h4>
+                    <h4 class="modal-title" id="myModalLabel" translate>HELP_TITLE</h4>
                 </div>
                 <div class="modal-body">
-                    <ul style="list-style-type:none;">
+                    <ul style="list-style-type:none; padding-right: 40px;">
                         <li>
                             <span class="fa fa-download"></span>
-                            <span translate>HELP_DOWNLOAD_TO_PC</span>
+                            <span translate>HELP_DOWNLOAD</span>
                         </li>
+                        <br>
                         <li>
                             <span class="fa fa-save"></span>
-                            <span>SAVE_TO_BROWSER</span>
+                            <span translate>HELP_SAVE</span>
                         </li>
+                        <br>
                         <li>
                             <span class="fa fa-folder-open"></span>
-                            <span>SAVE_TO_BROWSER</span>
+                            <span translate>HELP_LOAD</span>
                         </li>
+                        <br>
                         <li>
                             <span class="fa fa-undo"></span>
-                            <span>SAVE_TO_BROWSER</span>
+                            <span translate>HELP_CLEAR</span>
+                            <br>
                         </li>
+                        <br>
                         <li>
                             <span class="fa  fa-check-square"></span>
-                            <span>SAVE_TO_BROWSER</span>
+                            <span translate>HELP_SYMMETRICAL</span>
                         </li>
-                
+                        <br>
+                        <li><span translate>HELP_HOW_TO_BUY_CUSTOM_PRODUCT</span></li>
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-secondar" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default btn-secondar" data-dismiss="modal">
+                        <span translate>HELP_CLOSE</span>
+                    </button>
                 </div>
             </div>
         </div>
