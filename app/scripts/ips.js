@@ -45,7 +45,7 @@ class ips {
                 const colorSvg = await readFile(colorPath);
                 const template = await readFile(path.join(__dirname, '../templates/wawi_colorizer.html'));
 
-                productSvg = productSvg.replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)').replace(/class=\"cls-1\"/g, '');
+                productSvg = productSvg.replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)').replace('stroke-width:0.14px;', 'stroke-width:0.6px;').replace(/class=\"cls-1\"/g, '');
 
                 let replacedTemplate = template.replace('<%= require("./../../svg/product.svg") %>', productSvg)
                     .replace('<%= require("./../../svg/color.svg") %>', colorSvg)
