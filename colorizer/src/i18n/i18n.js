@@ -23,7 +23,7 @@ export default class i18n {
             const translation = that.translate(key);
 
             if (translation) {
-                element.text(translation);
+                element.html(translation);
             }
         })
     }
