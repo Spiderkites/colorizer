@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import de from "./de";
 import en from "./en";
 
-const translations = ['download-btn-text', 'save-btn-text', 'load-btn-text', 'clear-btn-text', 'symmetrical-checkbox-text'];
 
 export default class i18n {
     constructor() {
@@ -11,27 +10,25 @@ export default class i18n {
         this.en = en;
         this.lang = document.documentElement ? document.documentElement.lang : 'de';
 
-        translations.forEach(this.translateForId.bind(this));
+        this._initStaticText();
     }
 
-    translateForId(id) {
-        try {
-            const element = d3.select(`#${id}`);
+    _initStaticText() {
+
+        let that = this;
+        d3.selectAll("[translate]").each(function () {
+            const element = d3.select(this);
             const key = element.text().trim();
 
-            const translation = this.translate(key);
+            const translation = that.translate(key);
 
             if (translation) {
                 element.text(translation);
             }
-        } catch (e) {
-            console.error(e);
-        }
-
+        })
     }
 
     translate(key) {
-
         return this[this.lang][key];
     }
 }

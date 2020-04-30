@@ -1,4 +1,3 @@
-
 <div id="spiderkites-colorizer" style="opacity: 0;">
 
     <div id="product" uuid="UUID-Development" class="row m-3" style="margin: 1rem;">
@@ -14,24 +13,28 @@
             <div id="product-actions" class="btn-group btn-group-md product-actions hidden-print" role="group">
                 <button id="download-btn" class="btn btn-default btn-secondary">
                     <span class="fa fa-download"></span>
-                    <span id="download-btn-text" class="hidden-sm">DOWNLOAD</span>
+                    <span translate class="hidden-sm">DOWNLOAD</span>
                 </button>
                 <button id="save-btn" class="btn btn-default btn-secondary">
                     <span class="fa fa-save"></span>
-                    <span id="save-btn-text" class="hidden-sm">SAVE</span>
+                    <span translate class="hidden-sm">SAVE</span>
                 </button>
                 <button id="load-btn" class="btn btn-default btn-secondary">
                     <span class="fa fa-folder-open"></span>
-                    <span id="load-btn-text" class="hidden-sm">LOAD</span>
+                    <span translate class="hidden-sm">LOAD</span>
                 </button>
                 <button id="clear-btn" class="btn btn-default btn-secondary">
                     <span class="fa fa-undo"></span>
-                    <span id="clear-btn-text" class="hidden-sm">CLEAR</span>
+                    <span translate class="hidden-sm">CLEAR</span>
                 </button>
                 <label class="btn btn-default btn-secondary" style="margin-bottom: unset;">
                     <input id="symmetrical-checkbox" type="checkbox" style="margin: unset;">
-                    <span id="symmetrical-checkbox-text">SYMMETRICAL</span>
+                    <span translate>SYMMETRICAL</span>
                 </label>
+                <button type="button" class="btn btn-default btn-secondar" data-toggle="modal" data-target="#myModal">
+                    <span class="fa  fa-question"></span>
+                </button>
+
             </div>
 
         </div>
@@ -44,34 +47,52 @@
     </div>
 
     <script>
-        try{
+        try {
             window.initColorizer();
-        } catch(e){}
+        } catch (e) { }
     </script>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">HELP</h4>
+                </div>
+                <div class="modal-body">
+                    <ul style="list-style-type:none;">
+                        <li>
+                            <span class="fa fa-download"></span>
+                            <span translate>HELP_DOWNLOAD_TO_PC</span>
+                        </li>
+                        <li>
+                            <span class="fa fa-save"></span>
+                            <span>SAVE_TO_BROWSER</span>
+                        </li>
+                        <li>
+                            <span class="fa fa-folder-open"></span>
+                            <span>SAVE_TO_BROWSER</span>
+                        </li>
+                        <li>
+                            <span class="fa fa-undo"></span>
+                            <span>SAVE_TO_BROWSER</span>
+                        </li>
+                        <li>
+                            <span class="fa  fa-check-square"></span>
+                            <span>SAVE_TO_BROWSER</span>
+                        </li>
+                
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-secondar" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
 
 </div>
