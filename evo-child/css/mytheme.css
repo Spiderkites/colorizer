@@ -45,3 +45,6 @@ h6,
 	font-style: normal;
 }
 
+.updatingStockInfo {
+    opacity: 0 !important;
+}
