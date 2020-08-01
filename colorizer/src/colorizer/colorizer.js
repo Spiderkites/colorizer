@@ -13,12 +13,10 @@ class Colorizer {
         this.initProduct();
 
         this.symmetrical = true;
+        this.vProfile = false;
         this.activeColor = undefined;
 
-
-        if (!production) {
-            this.cleanUpProductSvg();
-        }
+        this._clearSvg();
 
         this.initColor();
         this.initButtons();
@@ -26,14 +24,6 @@ class Colorizer {
         //Show DOM
         d3.select('#spiderkites-colorizer').transition().style('opacity', '1');
     }
-
-    cleanUpProductSvg() {
-        const productStyle = this.productSvg.select('defs style');
-        productStyle.html(productStyle.html().replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)'))
-        this.productSvg.selectAll(".cls-1").classed('cls-1', false);
-    }
-
-
 
     initProduct() {
         this.productSvg = d3.select('#product svg');
@@ -46,21 +36,26 @@ class Colorizer {
             var mousePosition = d3.mouse(this);
 
             that.productParts.each(function () {
-                const part = d3.select(this);
-                const polygon = that._getPolygonFromElement(part);
-                const isInside = that._inside(mousePosition, polygon);
+                const isDisabled = that._isDisabled(this.parentNode);
+                const isVProfile = that._isVProfile(this.parentNode);
+                if (!isDisabled && !isVProfile && !that.vProfile) {
+                    const part = d3.select(this);
+                    const polygon = that._getPolygonFromElement(part);
+                    const isInside = that._inside(mousePosition, polygon);
 
-                if (isInside && that.activeColor) {
-                    if (that.symmetrical) {
-                        const parent = d3.select(this.parentNode);
-                        parent.selectAll('polygon').transition().style("fill", that.activeColor.style('fill'));
-                    } else {
-                        part.transition().style("fill", that.activeColor.style('fill'));
+                    if (isInside && that.activeColor) {
+                        if (that.symmetrical) {
+                            const parent = d3.select(this.parentNode);
+                            parent.selectAll('polygon').transition().style("fill", that.activeColor.style('fill')).style('opacity', that.activeColor.style('opacity'));
+                        } else {
+                            part.transition().style("fill", that.activeColor.style('fill')).style('opacity', that.activeColor.style('opacity'));
+                        }
                     }
                 }
             })
         })
     }
+
 
     initColor() {
         const that = this;
@@ -78,17 +73,30 @@ class Colorizer {
 
                 that.activeColor.style('stroke', "#474747");
                 that.activeColor.style('stroke-width', "1.5px");
+
+                if (that.vProfile) {
+                    that.colorVProfile();
+                }
             })
     }
 
+    colorVProfile() {
+        const that = this;
+        this.productParts.each(function () {
+            const part = d3.select(this);
+            const isVProfile = d3.select(this.parentNode).attr('id') === 'vProfile'
+            if (isVProfile) {
+                part.transition().style("fill", that.activeColor.style('fill'));
+            }
+        })
+    }
+
     initButtons() {
+        const that = this;
+
         // Clear Button
         d3.select('#clear-btn').on('click', () => {
-            this.productParts.each(function () {
-                const part = d3.select(this);
-                part.transition().style("fill", 'rgb(255, 255, 255)');
-
-            })
+            that._clearSvg()
         });
 
         // Download Button
@@ -105,27 +113,61 @@ class Colorizer {
         //Load Button
         d3.select('#load-btn').on('click', () => {
             const item = this.SaveService.getItem(this.productUUID);
-            if(item){
-                if(confirm(this.i18n.translate('CONFIRM_DIALOG'))){
+            if (item) {
+                if (confirm(this.i18n.translate('CONFIRM_DIALOG'))) {
                     this.loadSvg(item);
                 }
             } else {
                 alert(this.i18n.translate('NO_ITEM_FOUND_DIALOG'));
             }
-
-
         });
 
         // Symetrical Checkbox
         d3.select("#symmetrical-checkbox").on("change", () => {
             this.symmetrical = !this.symmetrical;
         });
+
+        const hasVProfile = this.productSvg.select('#vProfile').empty();
+        if (!hasVProfile) {
+
+            d3.select("#show-vprofile-checkbox").style('display', 'initial');
+
+            d3.select("#vprofile-checkbox").on("change", () => {
+                this.vProfile = !this.vProfile;
+            });
+        }
     }
 
     loadSvg(svg) {
         this._destroyListener();
         d3.select("#product div").html(svg);
         this.initProduct();
+    }
+
+    _clearSvg() {
+        const that = this;
+        this.productParts.each(function () {
+            const isDisabled = that._isDisabled(this.parentNode);
+            const isVProfile = that._isVProfile(this.parentNode);
+            if (!isDisabled && !isVProfile) {
+                const part = d3.select(this);
+                part.transition().style("fill", 'rgb(255, 255, 255)').style('opacity', 0.8);
+            } else if (isVProfile) {
+                const part = d3.select(this);
+                part.transition().attr('style', undefined);
+            }
+        })
+
+    }
+
+    _isDisabled(node) {
+        const nodeId = d3.select(node).attr('id');
+        return nodeId === 'disabled';
+    }
+
+    _isVProfile(node) {
+        const nodeId = d3.select(node).attr('id');
+        return nodeId === 'vProfile';
     }
 
     _destroyListener() {
