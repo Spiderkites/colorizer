@@ -1,9 +1,7 @@
 const { ipcMain, dialog } = require("electron");
 const path = require("path");
 
-
 const { readFile } = require('./handleFileActions');
-
 
 class ips {
     constructor(_window) {
@@ -44,9 +42,6 @@ class ips {
                 let productSvg = await readFile(productPath);
                 const colorSvg = await readFile(colorPath);
                 const template = await readFile(path.join(__dirname, '../templates/wawi_colorizer.html'));
-                
-                //TODO: Check if unnecessary 
-                //productSvg = productSvg.replace('.cls-1', 'g > polygon').replace('fill:none', 'fill: rgb(255, 255, 255)').replace('stroke-width:0.14px;', 'stroke-width:0.6px;').replace(/class=\"cls-1\"/g, '');
 
                 let replacedTemplate = template.replace('<%= require("./../../svg/product.svg") %>', productSvg)
                     .replace('<%= require("./../../svg/color.svg") %>', colorSvg)
