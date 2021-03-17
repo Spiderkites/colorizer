@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 43 43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke-width: 1.5px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #9b9b9b;
+      }
+
+      .cls-2 {
+        fill: #9b9b9b;
+        stroke-width: 0.25px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+
+      .cls-5 {
+        filter: url(#Ellipse_2);
+      }
+    </style>
+    <filter id="Ellipse_2" x="0" y="0" width="43" height="43" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="zum_wunschzettel" data-name="zum wunschzettel" transform="translate(-1095 -327)">
+    <g class="cls-5" transform="matrix(1, 0, 0, 1, 1095, 327)">
+      <g id="Ellipse_2-2" data-name="Ellipse 2" class="cls-1" transform="translate(3 1)">
+        <circle class="cls-3" cx="18.5" cy="18.5" r="18.5"/>
+        <circle class="cls-4" cx="18.5" cy="18.5" r="17.75"/>
+      </g>
+    </g>
+    <g id="Group_2" data-name="Group 2" transform="translate(1106.023 337)">
+      <path id="Path_1" data-name="Path 1" class="cls-2" d="M10.49,20.257a.639.639,0,0,1-.5-.2c-.348-.3-8.262-7.615-9.407-10.751-.946-2.588-.8-5.027.5-6.819A5.727,5.727,0,0,1,5.911,0a4.554,4.554,0,0,1,.8.05A5.7,5.7,0,0,1,10.49,1.991,5.576,5.576,0,0,1,14.273.05,3.767,3.767,0,0,1,15.019,0a5.808,5.808,0,0,1,4.828,2.439,7.34,7.34,0,0,1,.5,6.819c-1.095,2.937-7.963,9.506-9.357,10.751A.606.606,0,0,1,10.49,20.257ZM5.911,1.493A4.412,4.412,0,0,0,2.278,3.285c-1,1.394-1.095,3.335-.3,5.475.7,1.891,4.927,6.321,8.461,9.705C13.974,15.081,18.2,10.651,18.9,8.76c.8-2.14.7-4.081-.3-5.475a4.192,4.192,0,0,0-3.584-1.792,2.423,2.423,0,0,0-.6.05,4.034,4.034,0,0,0-3.285,2.14.74.74,0,0,1-.7.4.794.794,0,0,1-.7-.4,3.857,3.857,0,0,0-3.285-2.14A1.866,1.866,0,0,0,5.911,1.493Z"/>
+    </g>
+  </g>
+</svg>
