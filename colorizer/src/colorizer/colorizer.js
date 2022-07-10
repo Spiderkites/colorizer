@@ -6,19 +6,33 @@ import SaveService from './saveService';
 
 
 class Colorizer {
-    constructor(production, i18n) {
+    constructor(urlProductSVG, urlColorSVG, i18n) {
         this.i18n = i18n;
         this.SaveService = new SaveService();
 
-        this.initProduct();
 
         this.symmetrical = true;
         this.vProfile = false;
         this.activeColor = undefined;
 
-        this._clearSvg();
+        //this._clearSvg();
 
-        this.initColor();
+        const productSVG = document.getElementById("productSVG");
+        fetch(urlProductSVG)
+            .then(r => r.blob())
+            .then(b => productSVG.data = URL.createObjectURL(b))
+            .catch(e=> console.log(e));
+
+        productSVG.onload = this.initProduct.bind(this)
+
+        const colorSVG = document.getElementById("colorSVG");
+        fetch(urlColorSVG)
+            .then(r => r.blob())
+            .then(b => colorSVG.data = URL.createObjectURL(b))
+            .catch(e=> console.log(e));
+
+        colorSVG.onload = this.initColor.bind(this)
+      
         this.initButtons();
 
         //Show DOM
@@ -26,7 +40,8 @@ class Colorizer {
     }
 
     initProduct() {
-        this.productSvg = d3.select('#product svg');
+        var obj = document.getElementById("productSVG");
+        this.productSvg = d3.select(obj.contentDocument).select('svg');
         this.productParts = this.productSvg.selectAll("g polygon");
         this.productUUID = d3.select('#product').attr('uuid');
 
@@ -59,8 +74,9 @@ class Colorizer {
 
     initColor() {
         const that = this;
+        var obj = document.getElementById("colorSVG");
 
-        d3.selectAll("#color-palet rect")
+        d3.select(obj.contentDocument).selectAll("rect")
             .style('cursor', 'pointer')
             .on('click', function () {
                 const color = d3.select(this);

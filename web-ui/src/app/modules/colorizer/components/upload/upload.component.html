@@ -1,9 +1,0 @@
-<span class="title">{{type| titlecase}}:</span>
-
-<button mat-stroked-button (click)='uploadService.upload(type)'
-    [disabled]="(uploadService.isPending$ | async)===true">Öffnen</button>
-
-<div class="chosen-path">
-    <p *ngIf="type==='product'">{{uploadService.productFilePath$ | async}}</p>
-    <p *ngIf="type==='color'">{{uploadService.colorFilePath$ | async}}</p>
-</div>

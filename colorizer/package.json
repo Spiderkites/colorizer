@@ -4,14 +4,12 @@
   "description": "",
   "scripts": {
     "start:dev": "webpack-dev-server ---production false",
-    "build": "webpack --config webpack.config.js --production true  && cp ./src/templates/wawi_colorizer.html ./../app/templates/wawi_colorizer.html && cp  ./dist/main.js  ./../evo-child/js/custom_utf-8.js && cd ./../evo-child/js/ && sh ./convert.sh",
-    "build:new": "webpack --config webpack.config.js --production true  && copy ./src/templates/wawi_colorizer.html ./../app/templates/wawi_colorizer.html && copy ./dist/main.js ./../evo-child/js/custom.js"
+    "build": "webpack --config webpack.config.js --production true"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "html-webpack-plugin": "4.0.4",
-    "svg-inline-loader": "0.8.2",
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.10.3"

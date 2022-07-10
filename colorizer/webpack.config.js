@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const SpiderkitesWebpackPlugin = require('./spiderkites-webpack-plugin.js');
 const webpack = require('webpack');
 const fs = require('fs');
 
@@ -14,14 +13,6 @@ module.exports = (env, argv)=> ( {
   },
   module: {
     rules: [
-      {
-        test: /\.svg$/,
-        loaders: [
-          {
-            loader: 'svg-inline-loader'
-          }
-        ]
-      }
     ]
   },
   plugins: [
@@ -29,16 +20,8 @@ module.exports = (env, argv)=> ( {
       PRODUCTION: argv.production,
     }),
     new HtmlWebpackPlugin({
-      template: './src/templates/wawi_colorizer.html',
-      filename: 'wawi_colorizer.html'
-    }),
-    new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    new SpiderkitesWebpackPlugin({
-      pattern: /{{{{wawi_colorizer}}}}/,
-      templateOutputName: 'wawi_colorizer.html'
-    })
   ]
 
 });
