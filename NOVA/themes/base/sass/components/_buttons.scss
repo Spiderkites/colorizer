@@ -1,0 +1,259 @@
+// theme buttons
+.btn { text-decoration: none; }
+
+.btn-primary { overflow: hidden; position: relative;
+  @include hover { background-color: lighten($primary, 8%); border-color: lighten($primary, 8%); color: color-yiq($primary);}
+
+  //&:focus, &.focus { background-color: $primary; border-color: $primary; }
+
+  &.disabled, &:disabled { background-color: $gray-medium; color: $gray; border-color: $gray-medium; }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle { background-color: $primary; border-color: $primary; color: color-yiq($primary);}
+}
+
+.btn-outline-primary { border-color: $primary; background-color: transparent; color: color-yiq($white);position: relative; overflow: hidden;
+  @include hover { background-color: lighten($primary, 45%); color: $yiq-text-dark; }
+
+  //&:focus, &.focus { border-color: $primary; background-color: transparent; color: $yiq-text-dark; }
+
+  &.disabled, &:disabled { background-color: transparent; color: $gray-medium; border-color: $gray-medium; }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle { border-color: $primary; background-color: $primary; color: color-yiq($primary);;
+    &::after { width: 300%; }
+  }
+}
+
+.btn-secondary {
+  @include hover { background-color: lighten($secondary, 8%); border-color: lighten($secondary, 8%); }
+}
+
+.btn-outline-secondary { border-color: $secondary; background-color: transparent; color: color-yiq($white);
+  @include hover { border-color: $secondary; background-color: $gray-medium; color: color-yiq($gray-medium);}
+
+  //&:focus, &.focus { border-color: $secondary; background-color: transparent; color: $yiq-text-dark; }
+
+  &.disabled, &:disabled { background-color: transparent; color: $gray-medium; border-color: $gray-medium; }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle { border-color: $secondary; background-color: $gray-medium; color: color-yiq($gray-medium);}
+}
+
+.btn-icon { @include button-size($btn-padding-x / 1.4, $btn-padding-x / 1.4, $btn-font-size * 1.15, 1, 50%); border-width: rem($btn-border-width + 1px);
+  > [class*='fa-'] { width: 1.25em; height: 1.25em; line-height: 1.25em; }
+
+  &.btn-sm { @include button-size($btn-padding-x-sm / 1.4, $btn-padding-x-sm / 1.4, $btn-font-size-sm * 1.15, 1, 50%); border-width: rem($btn-border-width); }
+  &.btn-lg { @include button-size($btn-padding-x-lg / 1.4, $btn-padding-x-lg / 1.4, $btn-font-size-lg * 1.15, 1, 50%); }
+}
+
+.btn-icon-primary { border-color: $gray-light; color: $gray-light; background-color: $white;
+  @include hover { border-color: $primary; color: $primary; }
+
+  &.disabled, &:disabled { background-color: $gray-medium; color: $white; border-color: $gray-medium; }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle { border-color: $primary; background-color: $primary; color: $white; }
+}
+
+.btn-icon-secondary { border-color: $secondary; color: $secondary; background-color: transparent;
+  @include hover { border-color: $secondary; color: $white; background-color: $secondary; }
+
+  &.disabled, &:disabled { background-color: $gray-medium; color: $white; border-color: $gray-medium; }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle { border-color: $primary; background-color: $primary; color: $white; }
+}
+
+.btn-animated {
+  .btn-primary { overflow: hidden; position: relative;
+    &::before { content: ''; display: block; position: absolute; width: 2.5rem; height: 300%; left: -100%; top: -100%; background: rgba(255,255,255,0.3); box-shadow: 0 0 rem(30px) rgba(255,255,255,.5); transform: rotate(-30deg); transition: all .6s $transition-base-timing; }
+
+    @include hover { background-color: $primary; border-color: $primary;
+      &::before { left: 150%; }
+    }
+  }
+
+  .btn-outline-primary {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 0%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      transform: skew(50deg);
+      transition: all .6s $transition-base-timing;
+      background-color: $primary;
+    }
+
+    @include hover { border-color: $primary; background-color: transparent;
+      &::after { width: 300%; background: $primary; }
+    }
+  }
+}
+
+/* add to cart btn */
+
+#add-to-cart .btn{
+  .btn-basket-check {
+    top: 0; left: 0; width: 100%; height: 100%; white-space: nowrap;
+    span {
+      margin-right: map_get($spacers, 1);
+      display: none;
+      @include media-breakpoint-up(sm) {
+        display: inline-block;
+      }
+    }
+  }
+  svg {
+    /* this is the check icon */
+    position: absolute; left: 0; top: 100%; width: 100%;
+    /* move the icon on the right - outside the button */
+    //transform: translateX(50%) translateY(-50%);
+  }
+  &.is-added .btn-basket-check {
+    /* product added to the cart - hide text message on the left with no transition*/
+    color: transparent; top: 50%; transform: translateY(-50%);
+  }
+  &.is-added svg {
+    /* product added to the cart - move the svg back inside the button */
+    top: 50%; transform: translateY(-50%);
+  }
+}
+
+.btn-light {
+  @include button-variant(#fff, $gray-dark, $sand, $gray-dark, $sand, $gray-dark);
+  color: $gray-dark;
+  text-decoration: none;
+  transition-property: box-shadow;
+  transition-duration: .3s;
+  @include hover {
+    color: $gray-dark;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.badge-circle {
+  background-color: $white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+  border: 2px solid $gray;
+  opacity: 0.7;
+  color: $gray;
+  font-size: 18px !important;
+  line-height: 15px !important;
+  border-radius: 50% !important;
+  padding: 0;
+  z-index: 1;
+  &::before { display: none; }
+  &.circle-small {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 14px !important;
+    line-height: 12px !important;
+  }
+  &:hover, &:focus {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white;
+    opacity: 1;
+  }
+}
+
+.badge-circle-1 {
+  background-color: $white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid $gray;
+  opacity: 0.8;
+  color: $gray;
+  font-size: 18px;
+  line-height: 15px;
+  border-radius: 50% !important;
+  transition: all .2s;
+  &::before { display: none; }
+  &.badge-circle-no-sizes {
+    width: unset;
+    height: unset;
+    min-width: unset;
+  }
+  &.circle-small {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 14px !important;
+    line-height: 12px !important;
+  }
+  &:hover {
+    color: $gray-dark;
+    border-color: $gray-dark;
+    opacity: 1 !important;
+    background: #fff;
+  }
+  &.on-list {
+    animation: size .4s;
+    color:#fff;
+    opacity: 1.0;
+    border: 1px solid $primary;
+    background-color: $primary;
+  }
+}
+
+.btn-danger {
+  color: $white;
+  &:hover {
+    color: $white;
+  }
+}
+
+.btn-outline-danger:hover {
+  &:hover {
+    color: $white;
+  }
+}
+
+.btn-scale-small .btn {
+  min-width: 25px;
+  width: 25px;
+  height: 25px;
+  font-size: 12px;
+}
+
+.btn-white {
+  background-color: $white;
+}
+
+.btn-filter-box {
+  text-decoration: none;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: left;
+  @include text-truncate;
+}
+
+.btn-back {
+  display: block;
+  width: 100%;
+  margin-bottom: map-get($spacers, 3);
+}
+
+.btn-row {
+  margin-top: map-get($spacers, 5);
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.68 39.19">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #202020;
+      }
+    </style>
+  </defs>
+  <g id="Ebene_2" data-name="Ebene 2">
+    <g id="Ebene_1-2" data-name="Ebene 1">
+      <circle class="cls-1" cx="4.53" cy="19.6" r="4.53"/>
+      <circle class="cls-1" cx="4.53" cy="4.53" r="4.53"/>
+      <circle class="cls-1" cx="4.53" cy="34.66" r="4.53"/>
+      <rect class="cls-1" x="15.06" y="2.39" width="33.62" height="4.28" rx="1.19"/>
+      <rect class="cls-1" x="15.06" y="17.46" width="33.62" height="4.28" rx="1.19"/>
+      <rect class="cls-1" x="15.06" y="32.52" width="33.62" height="4.28" rx="1.19"/>
+    </g>
+  </g>
+</svg>

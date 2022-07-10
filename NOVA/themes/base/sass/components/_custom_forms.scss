@@ -1,0 +1,83 @@
+
+.swatches {
+	flex-wrap: wrap;
+	.variation {
+		text-align: center;
+		cursor: pointer;
+		.label-variation,
+		.label-info {
+			line-height: 1rem;
+			> span.label-variation {
+				margin: 0;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				max-width: 50px;
+				display: inline-block;
+			}
+		}
+		&.not-available {
+			border: dashed 1px $danger;
+			.label-variation {
+				opacity: 0.5;
+			}
+		}
+	}
+	&-image {
+		background: #fff;
+		color: $gray-700 !important;
+		border: 1px solid $gray;
+		box-sizing: content-box;
+		border-radius: 2px;
+		opacity: 1;
+		text-align: left;
+		cursor: pointer;
+		overflow: hidden;
+		word-break: break-word;
+		text-overflow: ellipsis;
+		transition: all 0.5s ease-in-out;
+		width: 90px;
+
+		img {
+			padding: map_get($spacers, 2);
+			transition: height,width 0.5s ease-in-out;
+			width: rem(88px);
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+		&.active {
+			border: 1px solid $primary;
+		}
+		&.active img{
+			filter: grayscale(0);
+		}
+	}
+		&.imgswatches {
+			&.radio-selected img {
+				filter: grayscale(1);
+			}
+		}
+	&-text {
+	 	padding: rem(10px) rem(15px);
+		border: $border-width solid $gray-darker;
+		transition: all $transition-base-duration $transition-base-timing;
+		&.active {
+			border: $border-width solid $primary;
+			background-color: $gray-lighter;
+			font-weight: $font-weight-bold;
+		}
+	}
+
+	&-not-in-stock {
+		border-color: $gray-dark;
+		border-style: dashed;
+		opacity: 0.5;
+	}
+
+	&-sold-out {
+		border-color: $danger;
+		border-style: dashed;
+		opacity: 0.5;
+	}
+}

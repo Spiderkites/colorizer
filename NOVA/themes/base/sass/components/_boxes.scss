@@ -1,0 +1,240 @@
+// sidebar
+
+aside {
+  h4 {
+    margin-bottom: map_get($spacers, 3);
+  }
+
+  .card {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+
+    .card-title {
+      margin-bottom: map_get($spacers, 2);
+      font-size: $h2-font-size;
+      font-weight: $font-weight-semibold;
+    }
+    &.card-default {
+      .card-heading {
+        border-bottom: none;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      > .card-heading > .card-title {
+        color: $body-color;
+        font-weight: $font-weight-semibold;
+        border-bottom: 1px solid $sand;
+        padding: 10px 0;
+      }
+    }
+
+
+    > .card-body {
+      padding: 0;
+      .card-title{
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+
+  .nav-panel {
+    .nav {
+      flex-wrap: initial;
+    }
+    > .nav > .active > .nav-link {
+      border-bottom: $highlight-border-size solid $primary;
+      cursor: pointer;
+    }
+    .active > .nav-link {
+      font-weight: $font-weight-bold;
+    }
+    .nav-link[aria-expanded=true] i.fa-chevron-down {
+      transform: rotate(180deg);
+    }
+    .nav-link, .nav-item {
+      clear: left;
+    }
+  }
+
+  .box {
+    .nav-link,
+    .nav a ,
+    .dropdown-menu .dropdown-item {
+      text-decoration: none;
+      white-space: normal;
+    }
+    .nav-link {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .snippets-categories-nav-link-child {
+      padding-left: map-get($spacers, 2);
+      padding-right: map-get($spacers, 2);
+    }
+  }
+
+  .box-monthlynews a .value {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.box-categories .dropdown,
+.box-linkgroup .dropdown {
+   .collapse {
+      background: $gray-lighter;
+   }
+}
+.box-categories {
+  .nav-link {
+    cursor: pointer;
+  }
+}
+
+// boxes
+.box_login {
+  .register {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+    .fa {
+      color: $primary;
+    }
+  }
+  .resetpw {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+//searchcloud
+$jqcloud-classes: 7;
+@for $i from 0 through $jqcloud-classes {
+  .jqcloud-word.w#{$i} {
+    color: theme-color-level(primary, ($i - 5));
+    font-size: 100% + $searchcloud-font-size-scaling*($i - 1);
+  }
+}
+
+.jqcloud {
+  line-height: normal;
+  overflow: hidden;
+  position: relative;
+}
+
+.jqcloud-word a {
+  color: inherit !important;
+  font-size: inherit !important;
+  text-decoration: none !important;
+  &:hover {
+    color: $link-hover-color !important;
+  }
+}
+
+.searchcloud {
+  width: 100%;
+  height: 200px;
+}
+
+
+#footer-boxes .card {
+  background: transparent;
+  border: 0;
+  a {
+    text-decoration: none;
+  }
+}
+
+.box-normal {
+  @include media-breakpoint-up(md) {
+    margin-bottom: map-get($spacers, 4);
+  }
+  .box-normal-link {
+    text-decoration: none;
+    font-weight: $font-weight-bold;
+    margin-bottom: map-get($spacers, 2);
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
+.sidepanel-left {
+  .box-normal {
+    .box-normal-link {
+      @extend .h3;
+    }
+  }
+}
+.box-filter-hr {
+  margin-top: map-get($spacers, 2);
+  margin-bottom: map-get($spacers, 2);
+}
+.box-normal-hr {
+  margin-top: map-get($spacers, 3);
+  margin-bottom: map-get($spacers, 3);
+  display: flex;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+.box-last-seen {
+  .box-last-seen-item {
+    margin-bottom: map-get($spacers, 3);
+  }
+}
+.box-nav-item {
+  margin-top: map-get($spacers, 2);
+  @include media-breakpoint-up(md) {
+   margin-top: 0;
+  }
+}
+.box-login {
+  .box-login-resetpw {
+    margin-bottom: map-get($spacers, 2);
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+  }
+}
+.box-slider {
+  margin-bottom: map-get($spacers, 4);
+}
+.box-link-wrapper {
+  align-items: center;
+  display: flex;
+  i.snippets-filter-item-icon-right {
+    color: $text-muted;
+  }
+  .badge {
+    margin-left: auto;
+  }
+}
+.box-delete-button {
+  text-align: right;
+  white-space: nowrap;
+  .remove {
+    float: right;
+  }
+}
+.box-filter-price {
+  .box-filter-price-collapse {
+    padding-bottom: map-get($spacers, 4);
+  }
+}
+
+.hr-no-top {
+  margin-top: 0;
+  margin-bottom: map-get($spacers, 3);
+}
+.characteristic-collapse-btn-inner {
+  img {
+    margin-right: map-get($spacers, 1);
+  }
+}

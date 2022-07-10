@@ -1,1 +1,0 @@
- iconv -f utf-8 -t ISO-8859-1  ./custom_utf-8.js > ./custom.js

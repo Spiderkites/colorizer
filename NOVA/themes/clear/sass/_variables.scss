@@ -1,0 +1,396 @@
+$image-path:                        'images' !default;
+
+// colors
+$gray-lighter:                      #f5f7fa !default;
+$gray-light:                        #9b9b9b !default;
+$gray:                              #707070 !default;
+$gray-dark:                         #525252 !default;
+$gray-medium:                       #ebebeb !default;
+$gray-darker:                       #525252 !default;
+$sand:                              #ebebeb !default;
+$cool-white:                        #f8f8f8 !default;
+$primary:                           #F8BF00 !default;
+$secondary:                         $gray-darker !default;
+$success:                           #1C871E !default;
+$bg-success:                        #cee8d1 !default;
+$info:                              #525252 !default;
+$bg-info:                           #F5F7FA !default;
+$warning:                           #f39932 !default;
+$bg-warning:                        #F9F2DC !default;
+$danger:                            #b90000 !default;
+$bg-danger:                         #E8CCD2 !default;
+$bg-main:                           $gray-lighter !default;
+$bg-main-ligther:                   $bg-main !default;
+
+$white:                             #ffffff !default;
+$black:                             #000000 !default;
+
+$dark:                              $gray-dark !default;
+$gray-100:                          $gray-lighter !default;
+$gray-500:                          $gray-light !default;
+$gray-600:                          $gray !default;
+$gray-700:                          $gray-dark !default;
+
+$yiq-text-dark:                     $gray-darker !default;
+$yiq-text-light:                    $gray-lighter !default;
+
+$bg-typeahead-fix:                  $white !important  !default;
+
+$theme-colors				: () !default;
+$theme-colors: map-merge((
+        'gray'			: $gray,
+        'gray-light'	: $gray-lighter,
+        'gray-medium'	: $gray-medium,
+        'gray-dark'		: $gray-light,
+        'gray-darker'	: $gray-darker
+), $theme-colors);
+
+// spacer
+
+$spacer: 1rem !default;
+$spacers: (
+        0:                                0,
+        1:                                ($spacer * .25),
+        2:                                ($spacer * .5),
+        3:                                $spacer,
+        4:                                ($spacer * 1.5),
+        5:                                ($spacer * 2),
+        6:                                ($spacer * 3),
+        7:                                ($spacer * 4),
+        8:                                ($spacer * 5)
+) !default;
+
+// grid
+
+$grid-gutter-width:                 map-get($spacers, 5) !default;
+
+/* grid breakpoints */
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1300px
+) !default;
+
+/* grid containers */
+
+$container-max-widths: (
+        sm: 97vw,
+        md: 720px,
+        lg: 960px,
+        xl: 1250px
+) !default;
+
+// font
+
+$line-height-base:                  1.5 !default;
+$nova-theme-path:                   ".." !default;
+$fa-font-path:                      "../base/fontawesome/webfonts" !default;
+$font-family-sans-serif:            'Open Sans', sans-serif !default;
+$font-accent:                       Montserrat, sans-serif !default;
+
+$font-size-base:                    rem(14px) !default;
+$font-size-lg:                      rem(16px) !default;
+$font-size-sm:                      rem(12px) !default;
+$font-size-xs:                      rem(11px) !default;
+
+$font-weight-lighter		: lighter !default;
+$font-weight-light			: 300 !default;
+$font-weight-normal			: 400 !default;
+$font-weight-semibold		: 600 !default;
+$font-weight-bold			: 700 !default;
+$font-weight-bolder			: bolder !default;
+
+// heading
+
+$h1-font-size:                      rem(30px) !default;
+$h2-font-size:                      rem(24px) !default;
+$h3-font-size:                      rem(16px) !default;
+$h4-font-size:                      $font-size-base !default;
+$h5-font-size:                      $font-size-base !default;
+$h6-font-size:                      $font-size-base !default;
+
+$headings-margin-bottom:            $spacer !default;
+$headings-font-family:              $font-accent !default;
+$headings-font-weight:              $font-weight-normal !default;
+$headings-color:                    $gray-darker !default;
+
+// buttons
+
+$btn-box-shadow:                    none !default;
+$btn-active-box-shadow:             none !default;
+$btn-focus-box-shadow:              none !default;
+$btn-focus-width:                   0 !default;
+$btn-decoration:                    none !default;
+$btn-hover-decoration:              none !default;
+$btn-font-weight:                   $font-weight-semibold !default;
+
+// transition
+
+$transition-base-duration:          .2s !default;
+$transition-base-timing:            ease-in-out !default;
+$transition-base:                   all $transition-base-duration $transition-base-timing !default;
+$transition-fade:                   opacity .35s linear !default;
+
+// styles
+
+$highlight-border-size:             .375rem !default;
+
+$body-bg:                           $gray-100 !default;
+$body-color:                        $gray-700 !default;
+$table-color:                       $body-color !default;
+
+$copyright-bg-color:               $gray-dark !default;
+$footer-bg-color:                  $bg-main !default;
+$footer-color:                     $body-color !default;
+$header-bg-color:                  $white !default;
+$header-color:                     $body-color !default;
+
+$headings-color:                    $gray-700 !default;
+$navbar-light-hover-color:          $primary !default;
+
+$text-muted:                        $gray !default;
+$text-muted-header:                 $text-muted !default;
+$input-color-placeholder:           $gray !default;
+
+/* links */
+
+$link-color:                        $gray-darker !default;
+$link-decoration:                   underline !default;
+$link-hover-color:                  $primary !default;
+$link-hover-decoration:             none !default;
+
+$border-radius:                     .125rem !default;
+$border-radius-lg:                  $border-radius !default;
+$border-radius-sm:                  $border-radius !default;
+
+$border-width:                      1px !default;
+$border-color:                      $gray-medium !default;
+
+/* cards */
+
+$card-border-color:                 $gray-lighter !default;
+$card-cap-bg:                       $gray-lighter !default;
+$card-bg:                           $white !default;
+
+$searchcloud-font-size-scaling:     30% !default;
+$navbar-light-color:                $gray-dark !default;
+
+$input-bg:                          $white !default;
+$input-focus-border-color:          $primary !default;
+$input-focus-box-shadow:            none !default;
+$list-group-bg:                     $white !default;
+$list-group-disabled-bg:            $white !default;
+
+$progress-bar-color:                $gray !default;
+
+/* tables */
+
+$table-accent-bg:                   $gray-lighter !default;
+$table-hover-bg:                    $gray-lighter !default;
+
+$table-cell-padding:                (map-get($spacers, 1) * 3) !default;
+$table-cell-padding-x:              $spacer !default;
+$table-cell-padding-y:              (map-get($spacers, 1) * 3) !default;
+$table-cell-padding-sm:             map-get($spacers, 2) $spacer !default;
+
+$table-striped-order:               even !default;
+
+$sizes: (
+  20:                               20%,
+  40:                               40%,
+  60:                               60%,
+  80:                               80%
+) !default;
+
+// paths
+
+$url-0:                             url(../base/images/loading.gif) !default;
+$url-1:                             url(../base/images/loading-sm.gif) !default;
+
+// tooltips
+
+$tooltip-font-size:                 $font-size-sm !default;
+$tooltip-color:                     $gray-darker !default;
+$tooltip-border-color:              $gray-darker !default;
+$tooltip-bg:                        $white !default;
+$tooltip-border-radius:             $border-radius !default;
+$tooltip-arrow-color:               $gray-darker !default;
+$tooltip-arrow-inner-color:         $white !default;
+$tooltip-border-width:              $border-width !default;
+
+$tooltip-arrow-inner-width:         .8rem !default;
+$tooltip-arrow-inner-height:        .4rem !default;
+$tooltip-arrow-width:               .88rem !default;
+$tooltip-arrow-height:              .45rem !default;
+
+$tooltip-margin:                    .5rem !default;
+
+// input
+
+$border-width:                      1px !default;
+$input-btn-padding-y:               rem(10px) !default;
+$input-btn-padding-x:               rem(15px) !default;
+$input-btn-padding-y-sm:            rem(6px) !default;
+$input-btn-font-size-sm:            $font-size-base !default;
+
+$input-height:                      calc(#{$line-height-base * 1em} + #{$input-btn-padding-y * 2} + #{$border-width * 2}) !default;
+$input-border-color:                $gray !default;
+$custom-select-indicator-padding:   rem(30px) !default;
+$custom-select-indicator-color:     $white !default;
+$custom-select-indicator-bg:        $input-border-color !default;
+$custom-select-indicator:           str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='#{$input-border-color}' x='0px' y='0px' style='enable-background:new 0 0 32 32;' xml:space='preserve'%3E%3Cpolygon  points='16,18.2 11.8,14.6 12.4,13.8 16,16.8 19.6,13.8 20.2,14.6 '/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-select-invalid-indicator:   str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32.1 32'%3E%3Crect fill='#{$danger}' width='32.1' height='32'/%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M20.4,15l-4.2,4.2c-0.1,0.1-0.1,0.1-0.2,0.1s-0.2,0-0.2-0.1L11.7,15c-0.1-0.1-0.1-0.1-0.1-0.2s0-0.2,0.1-0.2l0.4-0.4c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1l3.5,3.5l3.5-3.5c0.1-0.1,0.1-0.1,0.2-0.1s0.2,0,0.2,0.1l0.4,0.4c0.1,0.1,0.1,0.1,0.1,0.2S20.5,14.9,20.4,15z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-select-valid-indicator:     str-replace(url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32.1 32'%3E%3Crect fill='#{$success}' width='32.1' height='32'/%3E%3Cpath fill='#{$custom-select-indicator-color}' d='M20.4,15l-4.2,4.2c-0.1,0.1-0.1,0.1-0.2,0.1s-0.2,0-0.2-0.1L11.7,15c-0.1-0.1-0.1-0.1-0.1-0.2s0-0.2,0.1-0.2l0.4-0.4c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1l3.5,3.5l3.5-3.5c0.1-0.1,0.1-0.1,0.2-0.1s0.2,0,0.2,0.1l0.4,0.4c0.1,0.1,0.1,0.1,0.1,0.2S20.5,14.9,20.4,15z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$custom-select-background:          $custom-select-indicator no-repeat right center / auto 100% !default;
+$custom-select-box-shadow:          none !default;
+
+// pagination
+
+$pagination-border-width:           0 !default;
+$pagination-bg:                     transparent !default;
+$pagination-color:                  $link-color !default;
+
+$pagination-hover-bg:               transparent !default;
+$pagination-hover-color:            $primary !default;
+
+$pagination-active-bg:              transparent !default;
+$pagination-active-color:           $pagination-color !default;
+
+$pagination-focus-box-shadow:       none !default;
+
+$pagination-disabled-color:         $gray-light !default;
+$pagination-disabled-bg:            transparent !default;
+
+/* breadcrumbs */
+
+$breadcrumb-padding-y:              map-get($spacers, 2) !default;
+$breadcrumb-padding-x:              0 !default;
+
+$breadcrumb-bg:                     transparent !default;
+$breadcrumb-divider-color:          $gray !default;
+$breadcrumb-active-color:           $gray-darker !default;
+
+$breadcrumb-border-radius:          0 !default;
+$breadcrumb-margin-bottom:          0 !default;
+
+$tap-target-size:                   44px !default;
+$tap-target-size-sm:                36px !default;
+
+//BESTSELLER, 1
+$ribbon-bg-1:                       #eeb700 !default;
+$ribbon-color-1:                    #fff !default;
+//SPECIALOFFERS, 2
+$ribbon-bg-2:                       #4cc210 !default;
+$ribbon-color-2:                    #fff !default;
+//NEWPRODUCTS, 3
+$ribbon-bg-3:                       $gray-darker !default;
+$ribbon-color-3:                    #fff !default;
+//TOPOFFERS, 4
+$ribbon-bg-4:                       $gray-medium !default;
+$ribbon-color-4:                    $gray-dark !default;
+//UPCOMINGPRODUCTS, 5
+$ribbon-bg-5:                       #f78e25 !default;
+$ribbon-color-5:                    #fff !default;
+//TOPREVIEWS, 6
+$ribbon-bg-6:                       #ebebeb !default;
+$ribbon-color-6:                    $gray-dark !default;
+//OUTOFSTOCK, 7
+$ribbon-bg-7:                       $danger !default;
+$ribbon-color-7:                    #fff !default;
+//ONSTOCK, 8
+$ribbon-bg-8:                       #11926b !default;
+$ribbon-color-8:                    #fff !default;
+//PREORDER, 9
+$ribbon-bg-9:                       #b9006f !default;
+$ribbon-color-9:                    #fff !default;
+
+$ribbon-colors				: () !default;
+$ribbon-colors: map-merge((
+        '1' : $ribbon-color-1,
+        '2' : $ribbon-color-2,
+        '3' : $ribbon-color-3,
+        '4' : $ribbon-color-4,
+        '5' : $ribbon-color-5,
+        '6' : $ribbon-color-6,
+        '7' : $ribbon-color-7,
+        '8' : $ribbon-color-8,
+        '9' : $ribbon-color-9
+), $ribbon-colors);
+
+$ribbon-bg-colors				: () !default;
+$ribbon-bg-colors: map-merge((
+        '1' : $ribbon-bg-1,
+        '2' : $ribbon-bg-2,
+        '3' : $ribbon-bg-3,
+        '4' : $ribbon-bg-4,
+        '5' : $ribbon-bg-5,
+        '6' : $ribbon-bg-6,
+        '7' : $ribbon-bg-7,
+        '8' : $ribbon-bg-8,
+        '9' : $ribbon-bg-9
+), $ribbon-bg-colors);
+
+/* navs */
+
+$nav-tabs-border-radius					: 0 !default;
+
+$nav-tabs-link-hover-border-color		: transparent !default;
+$nav-tabs-link-active-color				: $link-color !default;
+$nav-tabs-link-active-bg				: transparent !default;
+$nav-tabs-link-active-border-color		: $primary !default;
+
+$navbar-nav-link-padding-x: map-get($spacers, 4) !default;
+$navbar-nav-link-padding-y: map-get($spacers, 4) !default;
+$nav-link-padding-x       : 1rem !default;
+$navbar-padding-y         : .4rem !default;
+$navbar-padding-y-lg      : .6rem !default;
+$navbar-image-height      : 2rem !default;
+$navbar-image-height-lg   : rem(49px) !default;
+
+/* modals */
+
+$modal-inner-padding			: $spacer 0 !default;
+
+$modal-content-padding			: $spacer map-get($spacers, 5) !default;
+$modal-content-padding-sm   	: $spacer !default;
+$modal-content-border-width		: 0 !default;
+$modal-content-box-shadow-sm-up	: 0 0 rem(10px) transparentize($black, .9) !default;
+$modal-content-border-radius	: $border-radius !default;
+
+$modal-header-border-width		: $border-width !default;
+$modal-header-padding-y			: map-get($spacers, 2) !default;
+$modal-header-padding-x			: 0 !default;
+
+$modal-backdrop-opacity			: .8 !default;
+
+$modal-md: 700px !default;
+
+/* progress */
+
+$progress-bg				: $gray-lighter !default;
+$progress-box-shadow		: none !default;
+
+/* options */
+
+$enable-caret				: false !default;
+$enable-shadows				: true !default;
+
+/* dropdowns */
+
+$dropdown-box-shadow		: 0 rem(1px) rem(12px) transparentize($black, .84) !default;
+$dropdown-border-width		: 0 !default;
+$dropdown-border-radius		: 0 !default;
+
+$dropdown-link-bg-color	    : transparent;
+
+$dropdown-link-color		: $gray-darker !default;
+$dropdown-link-hover-color	: $gray-darker !default;
+$dropdown-link-hover-bg		: $gray-lighter !default;
+
+$dropdown-link-active-color	: $dropdown-link-hover-color !default;
+$dropdown-link-active-bg	: $dropdown-link-hover-bg !default;
+
+$dropdown-padding-y         : 0 !default;

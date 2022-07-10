@@ -1,0 +1,54 @@
+.modal-content { padding: $modal-content-padding;
+	@include media-breakpoint-down(sm) {
+		padding: $modal-content-padding-sm
+	}
+	@include media-breakpoint-down(md) {
+		height: 100%;
+	}
+	.container {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+.modal-title { @include font-size($font-size-base * (20 / $font-size-base)); }
+
+.modal-header { border-bottom: $modal-header-border-width solid $border-color;
+	.close { background-color: $gray-medium; color: $gray; width: map-get($spacers, 6); height: map-get($spacers, 6); border-radius: 50%; opacity: 1; margin: 0; position: absolute; right: 50%; top: 0; transform: translate(50%, -50%); outline: 0; padding: 0; font-size: $close-font-size; font-weight: $close-font-weight; border: 0;
+		&:hover { background-color: $primary; color: $white; }
+
+		@include media-breakpoint-up(md) { right: 0; transform: translate(50%, -50%); }
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	.modal-fullview { padding-right: 0 !important;
+		.modal-dialog { margin: 0; max-width: 100%; }
+		.modal-content { width: 100%; }
+		.close { position: fixed; top: 1rem; right: 1rem; transform: none; z-index: $zindex-fixed; }
+	}
+}
+
+.modal-dialog {
+	margin-top: $modal-dialog-margin-y-sm-up;
+	@include media-breakpoint-down(md) {
+		height: auto;
+	}
+}
+
+#productImagesModal {
+	.modal-dialog {
+		height: auto;
+	}
+	.square-image {
+		margin-bottom: map-get($spacers, 1);
+	}
+}
+
+#maintenance button.close{
+	display: none;
+}
+
+.modal-fullwidth {
+	max-width: 96vw;
+}

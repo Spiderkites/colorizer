@@ -1,0 +1,18 @@
+.contact-form {
+  legend {
+    border: 0;
+  }
+  .contact-form-privacy {
+    text-align: left;
+    margin-bottom: map-get($spacers, 3);
+    @include media-breakpoint-up(md) {
+      text-align: right;
+    }
+  }
+  .is-top {
+    margin-top: map-get($spacers, 5);
+  }
+  .contact-form-hr {
+    margin-bottom: map-get($spacers, 5);
+  }
+}

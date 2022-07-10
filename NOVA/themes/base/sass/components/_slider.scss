@@ -1,0 +1,49 @@
+/* Artikel Bilder Slider vertikal */
+.slick-down ,
+.slick-up {
+  outline: none;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  width: 19px;
+  height: 19px;
+  color: #ccc;
+  opacity: 0.75;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#freegift {
+  &:not(.slick-initialized) {
+    padding-top: 25px;
+  }
+  .slick-list{
+    padding-top: 25px;
+  }
+}
+
+// nivo
+.container-fluid .slider-wrapper {
+  margin: 0 (-($grid-gutter-width/2));
+}
+
+.nivo-caption {
+  background: $sand !important;
+  color: $gray-dark !important;
+}
+
+.nivo-controlNav {
+  .active {
+    img {
+      border: 1px solid $gray-dark;
+    }
+  }
+}

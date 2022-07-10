@@ -1,0 +1,94 @@
+#filter-checkboxes {
+  margin-bottom: map-get($spacers, 4);
+  @include media-breakpoint-down(md) {
+    .custom-checkbox label {
+      max-width: 32vw;
+    }
+  }
+  .custom-checkbox label, .custom-checkbox ::after {
+    cursor: pointer;
+  }
+}
+
+.delete-link-times {
+  position: absolute;
+  z-index: 1;
+  right: 0.5rem;
+  top: 0.5rem;
+  font-size: $font-size-lg;
+}
+
+.comparelist {
+  .table tr.comparelist-row td {
+    &:first-child {
+      position: sticky;
+      left: 0;
+      z-index: $zindex-dropdown - 4;
+    }
+  }
+  .table {
+    thead th {
+      &:first-child {
+        z-index: $zindex-dropdown - 3;
+      }
+      &:not(:first-child) {
+        z-index: $zindex-dropdown - 2;
+      }
+      background: $white;
+      vertical-align: top;
+      z-index: $zindex-dropdown - 1;
+    }
+    tbody td:first-child {
+      background-color: $gray-lighter;
+      font-weight: $font-weight-bold;
+    }
+    @include media-breakpoint-down(md) {
+      td {
+        padding: 0.3rem;
+        &:first-child > div {
+          width: 110px;
+        }
+      }
+      th {
+        padding: 0;
+      }
+    }
+  }
+
+  .stretched {
+    display: flex;
+    flex-direction: column;
+  }
+  .comparelist-label-button {
+    th {
+      padding: 0;
+      border: 0;
+    }
+  }
+}
+
+.custom-checkbox + .description {
+  margin-left: $custom-control-gutter + $custom-control-indicator-size;
+}
+.comparelist-checkboxes {
+  padding-top: map-get($spacers, 3);
+  .comparelist-checkbox-wrapper {
+    margin-top: map-get($spacers, 2);
+    margin-bottom: map-get($spacers, 2);
+  }
+}
+.comparelist-item {
+  padding-bottom: 0;
+  text-align: center;
+  .comparelist-item-image {
+    margin-top: map-get($spacers, 2);
+    margin-bottom: map-get($spacers, 2);
+  }
+  .comparelist-item-more {
+    padding-left: 0;
+  }
+}
+
+.comparelist-delete-all {
+  float: right;
+}

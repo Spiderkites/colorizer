@@ -1,0 +1,15 @@
+
+.alert-dismissible .close,
+.close {
+  position: static;
+  float: right;
+  background: none;
+  padding: 0;
+  border: 0;
+  &:not(:disabled):not(.disabled):hover, &:not(:disabled):not(.disabled):focus {
+      opacity: 1;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

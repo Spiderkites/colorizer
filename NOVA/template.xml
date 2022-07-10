@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Template isFullResponsive="true">
+    <Name>NOVA</Name>
+    <Author>JTL-Software-GmbH</Author>
+    <URL>https://www.jtl-software.de</URL>
+    <MinShopVersion>5.1.2</MinShopVersion>
+    <Version>1.1.1</Version>
+    <Preview>preview.png</Preview>
+    <Description>JTL-Shop Responsive-Template</Description>
+    <Framework>Bootstrap4</Framework>
+    <Settings>
+        <Section Name="Allgemein" Key="general">
+            <Setting Description="Komprimierung von JavaScript- und CSS-Dateien" Key="use_minify" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="static">Ja, statisch</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Ist Nova Template" Key="is_nova" Type="text" Value="Y" Editable="false"/>
+        </Section>
+        <Section Name="Theme" Key="theme">
+            <Setting Description="Theme" Key="theme_default" Type="select" Value="clear">
+                <Option Value="clear">clear - Handgemacht mit <![CDATA[&hearts;]]> von JTL</Option>
+                <Option Value="midnight">midnight</Option>
+                <Option Value="blackline">blackline</Option>
+            </Setting>
+            <Setting Description="Animation für Schaltflächen beim Hovern" Key="button_animated" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Anzeige der Suche auf mobilen Geräten" Key="mobile_search_type" Type="select" Value="fixed">
+                <Option Value="fixed">Suche beim Hochscrollen einblenden</Option>
+                <Option Value="dropdown">Icon mit Dropdown</Option>
+            </Setting>
+            <Setting Description="Wunschzettel und Vergleichsliste - Animation anzeigen" Key="wish_compare_animation" Type="select" Value="mobile">
+                <Option Value="both">Auf Desktop und mobilen Geräten</Option>
+                <Option Value="mobile">Nur mobil</Option>
+                <Option Value="desktop">Nur Desktop</Option>
+                <Option Value="none">Keine</Option>
+            </Setting>
+            <Setting Description="Schaltfläche „Nach oben scrollen“ anzeigen"  Key="button_scroll_top" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Sliderposition" Key="slider_full_width" Type="select" Value="N">
+                <Option Value="N">im Contentbereich</Option>
+                <Option Value="Y">zwischen Header und Content</Option>
+            </Setting>
+            <Setting Description="Bannerposition" Key="banner_full_width" Type="select" Value="N">
+                <Option Value="N">im Contentbereich</Option>
+                <Option Value="Y">zwischen Header und Content</Option>
+            </Setting>
+            <Setting Description="Linke Seitenleiste anzeigen" Key="left_sidebar" Type="select" Value="N">
+                <Option Value="N">Nur auf Artikellisten</Option>
+                <Option Value="Y">Auf allen Seiten</Option>
+            </Setting>
+            <Setting Description="Favicon" Key="favicon" Type="upload" Value="favicon.ico" maxFileSize="123456" showPreview="false" allowedFileExtensions="['ico','png']" accept="image/*" target="themes/base/images/" targetFileName="favicon.ico"/>
+        </Section>
+        <Section Name="Megamenu" Key="megamenu">
+            <Setting Description="Kategorien (anstelle einer Kategoriebox / Boxenverwaltung)" Key="show_categories" Type="select" Value="Y">
+                <Option Value="Y">Auf Desktop und mobilen Geräten</Option>
+                <Option Value="mobile">Nur mobil</Option>
+                <Option Value="desktop">Nur Desktop</Option>
+                <Option Value="N">Inaktiv</Option>
+            </Setting>
+            <Setting Description="Kategoriebilder für erste Unterkategorie" Key="show_category_images" Type="select" Value="N">
+                <Option Value="Y">Aktiv</Option>
+                <Option Value="N">Inaktiv</Option>
+            </Setting>
+            <Setting Description="Unterkategorien" Key="show_subcategories" Type="select" Value="Y">
+                <Option Value="Y">Aktiv</Option>
+                <Option Value="N">Inaktiv</Option>
+            </Setting>
+            <Setting Description="Seiten der Linkgruppe „megamenu“" Key="show_pages" Type="select" Value="Y">
+                <Option Value="Y">Aktiv</Option>
+                <Option Value="N">Inaktiv</Option>
+            </Setting>
+            <Setting Description="Hersteller-Dropdown" Key="show_manufacturers" Type="select" Value="N">
+                <Option Value="Y">Aktiv</Option>
+                <Option Value="N">Inaktiv</Option>
+            </Setting>
+            <Setting Description="Herstellerbilder" Key="show_manufacturer_images" Type="select" Value="N">
+                <Option Value="Y">Aktiv</Option>
+                <Option Value="N">Inaktiv</Option>
+            </Setting>
+            <Setting Description="Header über gesamte Bildschirmbreite darstellen" Key="header_full_width" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
+        <Section Name="Listen- und Gallerieansicht" Key="productlist">
+            <Setting Description="Auswahloptionen bei „Filter anzeigen in (Desktop)“" Key="filter_placement" Type="select" Value="sidebar">
+                <Option Value="sidebar">Seitenleiste (Einstellung einzelner Filter unter „Standardelemente > Footer /Boxen“ und „Standardansichten > Artikelübersicht“)</Option>
+                <Option Value="modal">Eigenes Fenster (Einstellung einzelner Filter unter „Standardansichten > Artikelübersicht“)</Option>
+            </Setting>
+            <Setting Description="Suchfeld in Filtern anzeigen ab x Einträgen" Key="filter_search_count" Type="number" Value="20"/>
+            <Setting Description="Schaltfläche „Warenkorb“ in Artikelübersicht (Listenansicht) anzeigen" Key="buy_productlist" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Zusatzinfos zu Artikeln beim Hovern/Antippen anzeigen" Key="hover_productlist" Type="select" Value="Y">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Filter immer ausgeklappt" Key="filter_items_always_visible" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Variationsauswahl anzeigen" Key="variation_select_productlist" Type="select" Value="3">
+                <Option Value="N"><![CDATA[Nein]]></Option>
+                <Option Value="1"><![CDATA[max. 1]]></Option>
+                <Option Value="2"><![CDATA[max. 2]]></Option>
+                <Option Value="3"><![CDATA[max. 3]]></Option>
+                <Option Value="5"><![CDATA[max. 5]]></Option>
+                <Option Value="9999"><![CDATA[keine Beschränkung]]></Option>
+            </Setting>
+            <Setting Description="Anzahl der möglichen Variationswerte für Radio und Swatches" Key="variation_max_werte_productlist" Type="select" Value="3">
+                <Option Value="3"><![CDATA[max. 3]]></Option>
+                <Option Value="5"><![CDATA[max. 5]]></Option>
+                <Option Value="9"><![CDATA[max. 9]]></Option>
+                <Option Value="12"><![CDATA[max. 12]]></Option>
+                <Option Value="9999"><![CDATA[keine Beschränkung]]></Option>
+            </Setting>
+            <Setting Description="Anzahl der sichtbaren Filteroptionen in Boxen" Key="filter_max_options" Type="select" Value="5">
+                <Option Value="3"><![CDATA[max. 3]]></Option>
+                <Option Value="5"><![CDATA[max. 5]]></Option>
+                <Option Value="9"><![CDATA[max. 9]]></Option>
+                <Option Value="12"><![CDATA[max. 12]]></Option>
+                <Option Value="-1"><![CDATA[keine Beschränkung]]></Option>
+            </Setting>
+            <Setting Description="Preisspanne immer anzeigen (empfohlen)" Key="always_show_price_range" Type="select" Value="Y" Editable="false">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+        </Section>
+        <Section Name="Footer-Einstellungen" Key="footer">
+            <Setting Description="Newsletter-Anmeldung im Footer" Key="newsletter_footer" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Social-Media-Schaltflächen im Footer" Key="socialmedia_footer" Type="select" Value="N">
+                <Option Value="Y">Ja</Option>
+                <Option Value="N">Nein</Option>
+            </Setting>
+            <Setting Description="Facebook-Link" Key="facebook" Type="text" Value=""/>
+            <Setting Description="Twitter-Link" Key="twitter" Type="text" Value=""/>
+            <Setting Description="YouTube-Link" Key="youtube" Type="text" Value=""/>
+            <Setting Description="Xing-Link" Key="xing" Type="text" Value=""/>
+            <Setting Description="LinkedIn-Link" Key="linkedin" Type="text" Value=""/>
+            <Setting Description="Vimeo-Link" Key="vimeo" Type="text" Value=""/>
+            <Setting Description="Instagram-Link" Key="instagram" Type="text" Value=""/>
+            <Setting Description="Pinterest-Link" Key="pinterest" Type="text" Value=""/>
+            <Setting Description="Skype-Link" Key="skype" Type="text" Value=""/>
+        </Section>
+    </Settings>
+    <Minify>
+        <CSS Name="clear.css">
+            <File Path="themes/clear/clear.css"/>
+            <File Path="themes/clear/custom.css"/>
+        </CSS>
+        <CSS Name="midnight.css">
+            <File Path="themes/midnight/midnight.css"/>
+            <File Path="themes/midnight/custom.css"/>
+        </CSS>
+        <CSS Name="blackline.css">
+            <File Path="themes/blackline/blackline.css"/>
+            <File Path="themes/blackline/custom.css"/>
+        </CSS>
+        <JS Name="jtl3.js">
+            <File Path="js/bootstrap-toolkit.js"/>
+            <File Path="js/popper.min.js"/>
+            <File Path="js/bootstrap.bundle.min.js"/>
+            <File Path="js/slick.min.js"/>
+            <File Path="js/eModal.min.js"/>
+            <File Path="js/jquery.nivo.slider.pack.js"/>
+            <File Path="js/bootstrap-select.min.js"/>
+            <File Path="js/jtl.evo.js"/>
+            <File Path="js/typeahead.bundle.js"/>
+            <File Path="js/wow.min.js"/>
+            <File Path="js/colcade.js"/>
+            <File Path="js/global.js"/>
+            <File Path="js/slick-lightbox.min.js"/>
+            <File Path="js/jquery.serialize-object.min.js"/>
+            <File Path="js/jtl.io.js"/>
+            <File Path="js/jtl.article.js"/>
+            <File Path="js/jtl.basket.js"/>
+            <File Path="js/parallax.min.js"/>
+            <File Path="js/jqcloud.js"/>
+            <File Path="js/nouislider.min.js"/>
+            <File Path="js/consent.js"/>
+            <File Path="js/consent.youtube.js"/>
+        </JS>
+    </Minify>
+    <Boxes>
+        <Container Position="left" Available="1"></Container>
+        <Container Position="right" Available="0"></Container>
+        <Container Position="top" Available="0"></Container>
+        <Container Position="bottom" Available="1"></Container>
+    </Boxes>
+</Template>

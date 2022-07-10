@@ -1,0 +1,28 @@
+.noUi-horizontal {
+  height: 0.3em;
+  .noUi-connect {
+    //height: 0.3em;
+    background: $primary;
+  }
+  .noUi-handle {
+    top: -0.2em;
+    border-radius: 50%;
+    background: $primary;
+    border: 0;
+    width: 0.7em;
+    height: 0.7em;
+    box-shadow: 0px 0px 0px 5px rgba($primary, .5);
+    &::after,
+    &::before {
+      content: none;
+    }
+  }
+}
+.noUi-target {
+  background: $sand;
+  box-shadow: none;
+  border: 0;
+}
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
+  right: -0.35em;
+}

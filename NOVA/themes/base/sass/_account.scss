@@ -1,0 +1,131 @@
+/* downloads */
+.download-item {
+  padding-right: 0;
+  padding-left: 0;
+  .card-header {
+    text-align: left;
+    padding: map-get($spacers, 2);
+    border-top: $border-width solid $border-color;
+  }
+}
+.download-main-body {
+    padding: 0;
+}
+
+/* login */
+.register-wrapper {
+  margin-bottom: map-get($spacers, 2);
+  display: block;
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+  }
+}
+.resetpw-wrapper {
+  margin-left: 0;
+  @include media-breakpoint-up(md) {
+    margin-left: map-get($spacers, 3);
+  }
+}
+
+/* uploads */
+#uploads {
+  margin-top: map-get($spacers, 3);
+  th, td {
+    text-align: center;
+  }
+}
+
+/* order-item */
+.order-items {
+  .order-item {
+    .item-detail-list {
+      margin-top: map-get($spacers, 2);
+    }
+    .order-item-image-wrapper {
+      padding-right: map-get($spacers, 1);
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .order-items-total {
+    margin-left: auto;
+    padding-top: map-get($spacers, 4);
+    padding-bottom: map-get($spacers, 3);
+  }
+  .price-col {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+/* order-details */
+.order-details {
+    margin-bottom: map-get($spacers, 3);
+  .order-details-status {
+    text-align: right;
+    @include media-breakpoint-up(lg) {
+     text-align: left;
+    }
+  }
+}
+.order-details-data {
+  > li {
+    margin-bottom: map-get($spacers, 4);
+  }
+  .order-details-data-item {
+    color: $text-muted;
+    display: block;
+    font-size: $font-size-sm;
+  }
+}
+.order-details-date {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  > span {
+    margin-right: map-get($spacers, 2);
+  }
+}
+
+/* my-account */
+.account-comparelist {
+  .card-body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.account-head-data {
+  > div {
+    margin-bottom: map-get($spacers, 5);
+  }
+  .account-head-data-credit {
+    text-align: center;
+    font-weight: $font-weight-bold;
+    border: $border-width solid $primary;
+  }
+}
+.custom-switch {
+  margin-left: map-get($spacers, 2);
+}
+.account-orders-item {
+  margin-bottom: map-get($spacers, 3);
+  a {
+    text-decoration: none;
+  }
+}
+.account-data-item {
+  margin-bottom: map-get($spacers, 5);
+}
+.shipping-order-modal {
+  .shipping-order-modal-mb {
+    margin-bottom: map-get($spacers, 3);
+  }
+}
+
+/* reviews */
+.account-feedback {
+  margin-bottom: map-get($spacers, 3);
+}

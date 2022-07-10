@@ -1,0 +1,85 @@
+@import '../../base/fontawesome/scss/fontawesome.scss';
+@import '../../base/fontawesome/scss/brands.scss';
+@import '../../base/fontawesome/scss/regular.scss';
+@import '../../base/fontawesome/scss/solid.scss';
+@import '../../base/nouislider.min';
+@import '../../base/slick/slick-lightbox';
+@import '../../../js/password/password.min';
+
+// bootstrap
+@import '../../base/bootstrap/scss/bootstrap.scss';
+@import '../../base/bootstrap-select/bootstrap-select.scss';
+
+/* consent */
+@import '../../base/consent/consent';
+
+// slick slider
+@import '../../base/slick/slick.scss';
+
+// fileinput
+@import '../../base/fileinput/fileinput.min.scss';
+
+// wow animation
+@import '../../base/wow/animate';
+
+// slider
+@import '../../base/slider/slider';
+
+// theme mixins
+@import '../../base/sass/mixins';
+
+// theme fonts
+@include font-face('Raleway', $nova-theme-path + '/base/fonts/raleway/Raleway-Regular', 'Raleway-Regular' 'Raleway-Regular', normal, 400, '', ttf);
+@include font-face('Raleway', $nova-theme-path + '/base/fonts/raleway/Raleway-Medium', 'Raleway-Medium' 'Raleway-Medium', normal, 500, '', ttf);
+@include font-face('Raleway', $nova-theme-path + '/base/fonts/raleway/Raleway-Bold', 'Raleway-Bold' 'Raleway-Bold', normal, 700, '', ttf);
+@include font-face('Poppins', $nova-theme-path + '/base/fonts/poppins/Poppins-Light', 'Poppins-Light' 'Poppins-Light', normal, 300, '', ttf);
+@include font-face('Poppins', $nova-theme-path + '/base/fonts/poppins/Poppins-Regular', 'Poppins-Regular' 'Poppins-Regular', normal, 400, '', ttf);
+@include font-face('Poppins', $nova-theme-path + '/base/fonts/poppins/Poppins-SemiBold', 'Poppins-SemiBold' 'Poppins-SemiBold', normal, 600, '', ttf);
+
+// components
+@import '../../base/sass/components/all';
+
+// theme base
+@import '../../base/sass/base';
+
+/* utilities */
+@import '../../base/sass/utilities/all';
+
+/* productlist */
+@import '../../base/sass/productlist';
+
+/* productdetails */
+@import '../../base/sass/productdetails';
+
+/* comparelist */
+@import '../../base/sass/comparelist';
+
+/* header */
+@import '../../base/sass/header';
+
+/* footer */
+@import '../../base/sass/footer';
+
+/* account */
+@import '../../base/sass/account';
+
+/* basket */
+@import '../../base/sass/basket';
+
+/* contact */
+@import '../../base/sass/contact';
+
+/* newsletter */
+@import '../../base/sass/newsletter';
+
+/* checkout */
+@import '../../base/sass/checkout';
+
+/* register */
+@import '../../base/sass/register';
+
+/* selectionwizard */
+@import '../../base/sass/selectionwizard';
+
+/* snippets */
+@import '../../base/sass/snippets';

@@ -1,0 +1,112 @@
+
+.newsbox {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding-bottom: map-get($spacers, 5);
+	position: relative;
+}
+
+.newsbox-image { height: rem(250px);
+	img { object-fit: cover; height: 100%; width: 100%; }
+}
+
+.newsbox-body { flex: 1 1 auto; padding: $spacer 0; }
+
+.newsbox-headline { font-weight: $font-weight-bold; margin: $spacer 0; display: block; }
+
+.newsbox-author {
+	vertical-align: middle;
+	display: none;
+	@include media-breakpoint-up(sm) {
+		display: inline-block;
+	}
+}
+.news-categorylist {
+	margin-bottom: map-get($spacers, 4);
+}
+.author-meta {
+	text-align: center;
+	font-size: $font-size-sm;
+	color: $text-muted;
+}
+.blog-details {
+	h1 {
+		text-align: center;
+	}
+	.blog-details-image {
+		margin-top: map-get($spacers, 5);
+		margin-bottom: map-get($spacers, 5);
+	}
+	.blog-details-content {
+		margin-bottom: map-get($spacers, 4);
+	}
+	.blog-details-save {
+		margin-left: auto;
+		.btn {
+			float: right;
+		}
+	}
+	.blog-details-hr {
+		margin-top: map-get($spacers, 6);
+		margin-bottom: map-get($spacers, 6);
+	}
+	.blog-details-comments-list {
+		padding: map-get($spacers, 3);
+		background-color: $bg-info;
+	}
+	.blog-details-comments-list-item {
+		margin: 0;
+		background-color: $bg-info;
+		border-top: 0;
+	}
+	.review-reply {
+		margin-top: map-get($spacers, 3);
+		margin-left: map-get($spacers, 3);
+	}
+	.blockquote-footer {
+		margin-top: map-get($spacers, 3);
+	}
+	.blog-comments-header {
+		align-items: center;
+		margin-bottom: map-get($spacers, 3);
+	}
+}
+.blog-overview {
+	.blog-overview-main {
+		align-items: end;
+		margin-top: map-get($spacers, 6);
+		margin-bottom: map-get($spacers, 2);
+		.custom-select {
+			margin-bottom: map-get($spacers, 2);
+			@include media-breakpoint-up(xl) {
+				margin-bottom: 0;
+			}
+
+		}
+		.blog-overview-pagination {
+			margin-left: auto;
+		}
+	}
+	.blog-overview-preview {
+		margin-top: map-get($spacers, 4);
+		.blog-overview-preview-item {
+			margin-bottom: map-get($spacers, 5);
+		}
+	}
+	.blog-overview-hr {
+		margin-top: - map-get($spacers, 1);
+		margin-bottom: map-get($spacers, 5);
+	}
+}
+.blog-header {
+	margin-bottom: map-get($spacers, 5);
+}
+.blog-preview {
+	.blog-preview-comment {
+		margin-left: auto;
+		a {
+			text-decoration: none;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+
+.tooltip-inner { border: rem($tooltip-border-width) solid $tooltip-border-color; }
+
+.tooltip { padding: 0; }
+
+.bs-tooltip-top .arrow,
+.bs-tooltip-auto[x-placement^=top] .arrow {  @include cssarrow('bottom', $tooltip-bg, 6px, $tooltip-border-width, $tooltip-border-color); margin-bottom: $tooltip-border-width; }
+
+.bs-tooltip-bottom .arrow,
+.bs-tooltip-auto[x-placement^=bottom] .arrow { @include cssarrow('top', $tooltip-bg, 6px, $tooltip-border-width, $tooltip-border-color); margin-top: $tooltip-border-width; }
+
+.bs-tooltip-right .arrow,
+.bs-tooltip-auto[x-placement^=right] .arrow { @include cssarrow('left', $tooltip-bg, 6px, $tooltip-border-width, $tooltip-border-color); margin-left: $tooltip-border-width; }
+
+.bs-tooltip-left .arrow,
+.bs-tooltip-auto[x-placement^=left] .arrow { @include cssarrow('right', $tooltip-bg, 6px, $tooltip-border-width, $tooltip-border-color); margin-right: $tooltip-border-width; }

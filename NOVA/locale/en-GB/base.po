@@ -1,0 +1,191 @@
+msgid "Allgemein"
+msgstr "General"
+
+msgid "Theme"
+msgstr "Theme"
+
+msgid "Ja"
+msgstr "Yes"
+
+msgid "Ja, statisch"
+msgstr "Yes, static"
+
+msgid "Nein"
+msgstr "No"
+
+msgid "Aktiv"
+msgstr "Active"
+
+msgid "Inaktiv"
+msgstr "Inactive"
+
+msgid "Komprimierung von JavaScript- und CSS-Dateien"
+msgstr "Compression of JavaScript and CSS files"
+
+msgid "Animation für Schaltflächen beim Hovern"
+msgstr "Animated buttons when hovering"
+
+msgid "Anzeige der Suche auf mobilen Geräten"
+msgstr "Display of search on mobile devices"
+
+msgid "Schaltfläche „Nach oben scrollen“ anzeigen"
+msgstr "Show button \"Scroll to top\""
+
+msgid "Sliderposition"
+msgstr "Slider position"
+
+msgid "Bannerposition"
+msgstr "Banner position"
+
+msgid "Favicon"
+msgstr "Favicon"
+
+msgid "Megamenu"
+msgstr "Mega menu"
+
+msgid "Kategoriebilder für erste Unterkategorie"
+msgstr "Category images for first subcategory"
+
+msgid "Kategorien (anstelle einer Kategoriebox / Boxenverwaltung)"
+msgstr "Categories (instead of category box / box administration)"
+
+msgid "Unterkategorien"
+msgstr "Subcategories"
+
+msgid "Seiten der Linkgruppe „megamenu“"
+msgstr "Pages of link group \"mega menu\""
+
+msgid "Hersteller-Dropdown"
+msgstr "Manufacturer drop-down"
+
+msgid "Herstellerbilder"
+msgstr "Manufacturer images"
+
+msgid "Listen- und Gallerieansicht"
+msgstr "List and gallery view"
+
+msgid "Auswahloptionen bei „Filter anzeigen in (Desktop)“"
+msgstr "Filter position"
+
+msgid "Schaltfläche „Warenkorb“ in Artikelübersicht (Listenansicht) anzeigen"
+msgstr "Show \"Basket\" button in item overview (list view)"
+
+msgid "Filter immer ausgeklappt"
+msgstr "Always expand filter"
+
+msgid "Zusatzinfos zu Artikeln beim Hovern/Antippen anzeigen"
+msgstr "Show additional item information when hovering/tapping"
+
+msgid "Footer-Einstellungen"
+msgstr "Footer"
+
+msgid "Newsletter-Anmeldung im Footer"
+msgstr "Show newsletter subscription"
+
+msgid "Social-Media-Schaltflächen im Footer"
+msgstr "Show Social Media buttons"
+
+msgid "Facebook-Link"
+msgstr "Facebook link"
+
+msgid "Twitter-Link"
+msgstr "Twitter link"
+
+msgid "YouTube-Link"
+msgstr "YouTube link"
+
+msgid "Xing-Link"
+msgstr "Xing link"
+
+msgid "LinkedIn-Link"
+msgstr "LinkedIn link"
+
+msgid "Vimeo-Link"
+msgstr "Vimeo link"
+
+msgid "Instagram-Link"
+msgstr "Instagram link"
+
+msgid "Pinterest-Link"
+msgstr "Pinterest link"
+
+msgid "Skype-Link"
+msgstr "Skype link"
+
+msgid "Variationsauswahl anzeigen"
+msgstr "Show available variations <span data-html=\"true\" data-toggle=\"tooltip\" title=\"Only effective if additional item information for hovering/tapping is active\"> <span class=\"fas fa-info-circle fa-fw\"></span> </span>"
+
+msgid "Anzahl der sichtbaren Filteroptionen in Boxen"
+msgstr "Number of visible filter options in boxes <span data-html=\"true\" data-toggle=\"tooltip\" title=\"Additional options can still be viewed\"><span class=\"fas fa-info-circle fa-fw\"></span> </span>"
+
+msgid "Anzahl der möglichen Variationswerte für Radio und Swatches"
+msgstr "Number of possible variation values for radio buttons and swatches <span data-html=\"true\" data-toggle=\"tooltip\" title=\"only effective when \"Show available variations\" is active\"> <span class=\"fas fa-info-circle fa-fw\"></span> </span>"
+
+msgid "keine Beschränkung"
+msgstr "no restriction"
+
+msgid "max. 1"
+msgstr "max. of 1"
+
+msgid "max. 2"
+msgstr "max. of 2"
+
+msgid "max. 3"
+msgstr "max. of 3"
+
+msgid "max. 5"
+msgstr "max. of 5"
+
+msgid "max. 9"
+msgstr "max. of 9"
+
+msgid "max. 12"
+msgstr "max. of 12"
+
+msgid "Seitenleiste (Einstellung einzelner Filter unter „Standardelemente > Footer /Boxen“ und „Standardansichten > Artikelübersicht“)"
+msgstr "Side bar (for individual filter settings, see \"Standard elements > Footers/Boxes\" and \"Standard views > Item overview\")"
+
+msgid "Eigenes Fenster (Einstellung einzelner Filter unter „Standardansichten > Artikelübersicht“)"
+msgstr "Separate window (for individual filter settings, see \"Standard views > Item overview\")"
+
+msgid "Suche beim Hochscrollen einblenden"
+msgstr "Show search when scrolling up"
+
+msgid "Icon mit Dropdown"
+msgstr "Icon with drop-down"
+
+msgid "im Contentbereich"
+msgstr "In content area"
+
+msgid "zwischen Header und Content"
+msgstr "Between header and content"
+
+msgid "Wunschzettel und Vergleichsliste - Animation anzeigen"
+msgstr "Show animation for wish list and comparison list"
+
+msgid "Auf Desktop und mobilen Geräten"
+msgstr "With desktop and mobile devices"
+
+msgid "Nur mobil"
+msgstr "Only with mobile devices"
+
+msgid "Nur Desktop"
+msgstr "Only with desktop devices"
+
+msgid "Keine"
+msgstr "No"
+
+msgid "Header über gesamte Bildschirmbreite darstellen"
+msgstr "Display header over full width"
+
+msgid "Linke Seitenleiste anzeigen"
+msgstr "Show left sidebar"
+
+msgid "Nur auf Artikellisten"
+msgstr "Only on item lists"
+
+msgid "Auf allen Seiten"
+msgstr "On all pages"
+
+msgid "Suchfeld in Filtern anzeigen ab x Einträgen"
+msgstr "Show search in filters if filter has more than x items"

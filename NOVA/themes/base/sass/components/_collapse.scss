@@ -1,0 +1,11 @@
+
+[data-toggle="collapse"]:not(.navbar-toggler) { @extend .dropdown-toggle; display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap;
+	&.no-caret { display: block; }
+	&.no-caret::after { display: none; }
+}
+
+.btn[data-toggle="collapse"][aria-expanded=true] {
+	i.fa-chevron-down {
+		transform: rotate(180deg);
+	}
+}

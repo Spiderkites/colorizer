@@ -1,0 +1,5 @@
+
+.list-icons { @extend .list-unstyled;
+	> li { padding-left: 2em; }
+	[class*='fa-'] { text-align: center; width: 1.25em; margin-left: -2em; margin-top: .15em; float: left; line-height: inherit; }
+}

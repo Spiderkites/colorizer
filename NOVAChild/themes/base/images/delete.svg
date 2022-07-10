@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #707070;
+      }
+
+      .cls-2 {
+        fill: #707070;
+        font-size: 14px;
+        font-family: FontAwesome5FreeRegular, "Font Awesome 5 Free";
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="löschen" transform="translate(-1401.988 -733)">
+    <g id="Rectangle_20" data-name="Rectangle 20" class="cls-1" transform="translate(1401.988 733)">
+      <rect class="cls-3" width="35" height="35" rx="2"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="34" height="34" rx="1.5"/>
+    </g>
+    <text id="_" data-name="" class="cls-2" transform="translate(1413.988 756)"><tspan x="0" y="0"></tspan></text>
+  </g>
+</svg>

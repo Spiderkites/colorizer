@@ -1,0 +1,86 @@
+
+.nav-dividers {
+	.nav-item { position: relative;
+		&:not(:last-child)::after { content: ''; position: absolute; right: 0; top: $nav-link-padding-y; height: calc(100% - #{2 * $nav-link-padding-y}); border-right: rem(1px) solid currentColor; }
+	}
+}
+
+.nav-link {
+	text-decoration: none;
+}
+
+// custom navbar toggler
+.navbar-toggler { font-size: 0; border: 0; height: rem(25px); padding: 0;
+	&:focus, &.focus { outline: 0; }
+
+	.navbar-toggler-icon { background-image: none; height: rem(2px); background-color: transparent; width: rem(20px); display: inline-block; position: relative; transition: all .2s; border-radius: 1rem;
+		&:before, &:after { content: ''; height: inherit; width: inherit; transform-origin: center; background-color: currentColor; display: inherit; position: absolute; left: 50%; transform: translateX(-50%); transition: all .2s; border-radius: inherit; }
+		&:before { transform: translateX(-50%) rotate(45deg); }
+		&:after { transform: translateX(-50%) rotate(-45deg); }
+	}
+
+	&[aria-expanded="false"] {
+		.navbar-toggler-icon { background-color: currentColor;
+			&:before { transform: translateX(-50%) translateY(rem(-6px)); }
+			&:after { transform: translateX(-50%) translateY(rem(6px)); }
+		}
+	}
+	@include media-breakpoint-up(lg) {
+		display: none;
+	}
+}
+
+// nav scrollbar
+.nav-scrollbar { overflow: hidden; display: flex; align-items: center;
+	.nav, .navbar-nav { flex-wrap: nowrap; }
+	.nav-item { white-space: nowrap; }
+}
+
+.nav-scrollbar-inner { overflow-x: auto; padding-bottom: map-get($spacers, 4); /*margin-bottom: -(map-get($spacers, 4));*/ align-self: flex-start; }
+
+.nav-scrollbar-arrow { width: 3rem; cursor: pointer; transition: opacity $transition-base-duration; font-size: $font-size-lg; z-index: 1;
+	&.left { @include gradient-x($header-bg-color, transparentize($header-bg-color, 0.99), 30%); left: 0; padding-right: 2rem; margin-right: -3rem; }
+	&.right { @include gradient-x(transparentize($header-bg-color, 0.99), $header-bg-color, 0%, 70%); right: 0; padding-left: 2rem; margin-left: -3rem; }
+
+	&.disabled { pointer-events: none; opacity: 0; }
+}
+
+#shop-nav {
+	.nav-link {
+		i {
+			position: relative;
+		}
+		@include media-breakpoint-down(sm) {
+			padding-left:	map_get($spacers, 3) * 0.75;
+			padding-right: map_get($spacers, 3) * 0.75
+		}
+	}
+	.nav-item {
+		.table-responsive {
+			padding-left: 0.75rem;
+			padding-right: 0.75rem;
+		}
+	}
+}
+
+.nav-panel .nav .nav {
+	padding-left: map-get($spacers, 2);
+}
+.nav-scrollbar-item {
+	.nav-mobile-heading {
+		display: block;
+		padding-right: map-get($spacers, 3);
+		@include media-breakpoint-up(lg) {
+			padding-right: 0;
+		}
+		@include text-truncate;
+	}
+
+	.dropdown-body {
+		padding: 0;
+		@include media-breakpoint-up(lg) {
+			padding-bottom: map-get($spacers, 4);
+			padding-top: map-get($spacers, 4);
+		}
+	}
+}

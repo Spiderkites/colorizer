@@ -1,0 +1,53 @@
+
+.card-gray { background: $gray-lighter; border: 0;
+	.card-body { padding: map-get($spacers, 4); }
+}
+
+.card-products {
+	.card-header { background: $white; }
+	.card-header .btn { background: $gray-lighter; padding: rem(15px) rem(30px); }
+	.card-body { padding: map-get($spacers, 3); }
+}
+
+.card-header {
+	border-bottom: 0;
+}
+
+.card-columns {
+	column-count: 1;
+	.card {
+		margin-bottom: $card-columns-margin;
+		display: inline-block; // Don't let them vertically span multiple columns
+		width: 100%; // Don't let their width change
+	}
+
+	@include media-breakpoint-up(md) {
+		column-count: $card-columns-count - 1;
+		column-gap: $card-columns-gap;
+		orphans: 1;
+		widows: 1;
+	}
+
+	@include media-breakpoint-up(lg) {
+		column-count: $card-columns-count;
+	}
+
+	&.manufacturers-columns {
+		column-count: 2;
+		column-gap: $card-columns-gap;
+		orphans: 1;
+		widows: 1;
+		@include media-breakpoint-up(md) {
+			column-count: $card-columns-count;
+		}
+
+		@include media-breakpoint-up(lg) {
+			column-count: $card-columns-count + 1;
+		}
+	}
+	&.card-columns-2 {
+		@include media-breakpoint-up(lg) {
+			column-count: 2;
+		}
+    }
+}

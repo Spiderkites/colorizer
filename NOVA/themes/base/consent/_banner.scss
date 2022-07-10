@@ -1,0 +1,27 @@
+
+##{$prefix}-banner { border: rem(1px) solid $gray-consent; border-radius: $border-radius; padding: 2rem 1rem 1rem; color: $gray-dark-consent; background-color: $white; width: 100%; max-width: rem(1200px); margin: auto; transition: all .2s;
+	@at-root :not(.fading) > & { @include shadow; }
+	@at-root .mini > & { display: none; }
+	@at-root .fading > & { transform: translateY(50%); opacity: 0; }
+
+	@include media-breakpoint-up(md) { padding: 1rem 2rem; }
+}
+
+.#{$prefix}-banner-icon { border-radius: 10rem; padding: .75rem; width: rem(55px); height: rem(55px); background-color: inherit; border: rem(1px) solid $gray-consent; position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); color: $shaftblue;
+	&::before { content: ''; background-color: inherit; width: calc(100% + #{2 * rem(1px)}); height: calc(50% + #{2 * rem(1px)}); position: absolute; left: rem(-1px); top: 50%; }
+	svg { z-index: 1; position: relative; }
+
+	@include media-breakpoint-up(lg) { left: 0; top: 50%;
+		&::before { width: calc(50% + #{2 * rem(1px)}); height: calc(100% + #{2 * rem(1px)}); left: 50%; top: rem(-1px); }
+	}
+}
+
+.#{$prefix}-banner-body { display: flex; align-items: center; flex-direction: column;
+	@include media-breakpoint-up(md) { flex-direction: row; }
+}
+
+.#{$prefix}-banner-description { flex-basis: 0; flex-grow: 1; max-width: 100%; }
+
+.#{$prefix}-banner-actions { margin-top: 1rem; width: 100%;
+	@include media-breakpoint-up(md) { margin-top: 0; margin-left: 2rem; width: rem(270px); }
+}

@@ -1,0 +1,27 @@
+
+/* colors */
+
+$shaftblue:			#435a6b;
+$shaftblue-dark:	#324350;
+
+$rysywhite:			#fff;
+
+$gray-consent:		#dddddd;
+$gray-dark-consent: #525252;
+
+$green: 			#397c26;
+$green-dark:		#47a447;
+
+$theme-colors-consent: (
+	'primary':		$shaftblue,
+	'secondary':	$rysywhite,
+	'tertiary':		$green,
+);
+
+/* prefix */
+
+$prefix:			'consent';
+
+/* z-index */
+
+$zindex-banner:		$zindex-modal;

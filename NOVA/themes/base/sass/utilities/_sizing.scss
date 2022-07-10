@@ -1,0 +1,23 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix-jtl($breakpoint, $grid-breakpoints);
+
+    .#{$infix}min-w-sm	{ min-width: rem(150px) }
+    .#{$infix}min-w		{ min-width: rem(250px) }
+    .#{$infix}min-w-lg	{ min-width: rem(350px) }
+    .#{$infix}min-w-100	{ min-width: 100% }
+
+    .#{$infix}max-w-sm	{ max-width: rem(150px) }
+    .#{$infix}max-w		{ max-width: rem(350px) }
+    .#{$infix}max-w-lg	{ max-width: rem(650px) }
+
+    .#{$infix}min-h-sm	{ min-height: rem(150px) }
+    .#{$infix}min-h		{ min-height: rem(250px) }
+    .#{$infix}min-h-lg	{ min-height: rem(350px) }
+    .#{$infix}min-h-100	{ min-height: 100% }
+
+    .#{$infix}max-h-sm	{ max-height: rem(150px) }
+    .#{$infix}max-h		{ max-height: rem(350px) }
+    .#{$infix}max-h-lg	{ max-height: rem(650px) }
+  }
+}

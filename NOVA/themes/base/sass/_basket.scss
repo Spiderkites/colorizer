@@ -1,0 +1,153 @@
+/* cart-dropdown */
+.cart-dropdown {
+  .cart-dropdown-total-item {
+    color: $text-muted-header;
+    margin-bottom: map-get($spacers, 2);
+    font-size: $font-size-sm;
+  }
+  .cart-dropdown-total-item-price {
+    float: right;
+    white-space: nowrap;
+  }
+  .cart-dropdown-next {
+    margin-bottom: map-get($spacers, 3);
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0;
+    }
+  }
+  .cart-dropdown-buttons {
+    margin-top: map-get($spacers, 3);
+  }
+  .cart-dropdown-empty {
+    padding: map-get($spacers, 2);
+  }
+}
+
+/* cart-dropdown-label */
+.cart-icon-dropdown {
+  .cart-icon-dropdown-price {
+    white-space: nowrap;
+    display: none;
+    font-size: $font-size-base;
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+    }
+
+  }
+  &.not-empty {
+    .cart-icon-dropdown-price {
+      margin-left: map-get($spacers, 3);
+    }
+  }
+  &:not(.not-empty) {
+    .cart-icon-dropdown-icon {
+      @include media-breakpoint-up(md) {
+        margin-right: map-get($spacers, 3);
+      }
+    }
+  }
+}
+
+/* index */
+.basket {
+  .basket-heading {
+    margin-bottom: map-get($spacers, 3);
+  }
+  .basket-items {
+    margin-bottom: map-get($spacers, 7);
+  }
+  .basket-freegift {
+    margin-bottom: map-get($spacers, 6);
+  }
+  .basket-empty {
+    text-align: center;
+    .alert {
+      margin-top: map-get($spacers, 4);
+      padding-top: map-get($spacers, 2);
+      padding-bottom: map-get($spacers, 5);
+    }
+  }
+  .basket-summary {
+    margin-top: map-get($spacers, 4);
+    .basket-summary-total {
+      margin-top: map-get($spacers, 3);
+      padding-top: map-get($spacers, 3);
+      font-size: $font-size-lg;
+      border-top: $border-width solid $border-color;
+    }
+
+  }
+  .basket-summary-top {
+     margin-top: map-get($spacers, 5);
+  }
+  .basket-summary-notice-weight-wrapper {
+     margin-top: map-get($spacers, 2);
+  }
+  #cart-checkout-btn {
+    width: 100%;
+    margin-top: map-get($spacers, 3);
+  }
+}
+
+/* cart-items */
+.cart-items-header {
+  padding-bottom: map-get($spacers, 3);
+}
+.cart-items-body {
+  padding-bottom: map-get($spacers, 3);
+  .cart-items-image {
+    height: 100%;
+  }
+  .cart-items-single-price {
+    margin-left: auto;
+    margin-bottom: map-get($spacers, 3);
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 0;
+    }
+    white-space: nowrap;
+  }
+  .cart-items-quantity {
+    margin-left: auto;
+    margin-bottom: map-get($spacers, 4);
+    text-align: center;
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 0;
+    }
+    white-space: nowrap;
+    .configurepos {
+      white-space: normal;
+    }
+  }
+  .cart-items-price {
+    margin-left: auto;
+    white-space: nowrap;
+    color: $font-accent;
+    @include media-breakpoint-up(xl) {
+      text-align: right;
+    }
+  }
+  .cart-items-price-text {
+    margin-right: map-get($spacers, 3);
+    display: inline-block;
+    @include media-breakpoint-up(xl) {
+      display: none;
+    }
+  }
+  .cart-items-delete {
+    margin-left: auto;
+    margin-top: map-get($spacers, 4);
+    .cart-items-delete-button {
+      padding: 0;
+      text-decoration: underline;
+      white-space: nowrap;
+      > span {
+        margin-right: map-get($spacers, 2);
+      }
+    }
+  }
+  .cart-items-name {
+    display: block;
+    margin-bottom: map-get($spacers, 3);
+  }
+}
+

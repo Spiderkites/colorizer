@@ -1,0 +1,29 @@
+//
+// Platz für eigene Variablen in SCSS-Notation
+//
+// Alle Änderungen hier müssen anschließend mit einem SCSS-Compiler
+// (z.B. dem JTL-Theme-Editor Plugin) nach my-nova.css kompiliert werden
+// --------------------------------------------------
+
+// my-nova Theme
+// Hier können alle Variablen notiert werden, die nur Auswirkungen auf dieses Theme haben
+// -------------------Beginn eigene Variablen----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+// -------------------Ende eigene Variablen----------------------------------
+
+// Lädt clear-Variablen
+@import '../../../../NOVA/themes/clear/sass/variables';
+
+// passt die Pfade an
+$nova-theme-path:                   "../../../NOVA/themes";
+$fa-font-path:                      "../../../NOVA/themes/base/fontawesome/webfonts";

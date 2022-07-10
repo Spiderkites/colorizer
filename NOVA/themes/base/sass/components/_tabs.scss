@@ -1,0 +1,32 @@
+
+.tabs { margin-bottom: $spacer; }
+
+.tab-navigation {
+	.nav-tabs { position: relative; }
+	.nav-item { &:not(:last-child) { margin-right: map-get($spacers, 5); } }
+	.nav-link { border: 0; @extend .text-accent; font-size: $font-size-lg; padding-left: 0; padding-right: 0; position: relative;
+		&::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); border-width: 0 0 $nav-tabs-border-width * 6; border-color: $nav-tabs-link-active-border-color; border-style: solid; transition: width .4s; width: 0; }
+
+		&.active, &:hover {
+			&::after { width: 100%; }
+		}
+	}
+
+	.tab-drop { margin-right: 0; position: absolute !important; right: 0; bottom: 0; display: block; width: 25px; }
+	.tab-drop .dropdown-toggle { margin-right: 0; }
+	.tab-drop .dropdown-toggle::after { margin: 0; font-size: 1.2rem; display: block; width: rem(25px); padding-bottom: rem(10px); text-align: center; border-bottom: 0; }
+}
+
+.tab-content { margin: map-get($spacers, 4) 0; }
+
+#tabAccordion > .card {
+	border: 0;
+}
+
+a[data-toggle="collapse"][aria-expanded=true],
+#tabAccordion div[data-toggle="collapse"][aria-expanded=true],
+#tabAccordion div[data-toggle="collapse"][aria-expanded="1"] {
+	i.fa-chevron-down {
+		transform: rotate(180deg);
+	}
+}

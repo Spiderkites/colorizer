@@ -1,0 +1,21 @@
+
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+@function px($value) {
+	@if(unitless($value)) {
+		@return 'no unit';
+	}
+
+	$unit:	unit($value);
+	$valueRaw:	strip-units($value);
+
+	@if($unit == 'rem') {
+		@return round($valueRaw * 16 * 1px);
+	} @else if($unit == 'pt') {
+		@return round($valueRaw * 1.3281472327365 * 1px);
+	} @else if($unit == 'px') {
+		@return $value;
+	}
+}

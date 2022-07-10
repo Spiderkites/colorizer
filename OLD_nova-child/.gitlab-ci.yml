@@ -1,0 +1,128 @@
+# 2020-11-17
+variables:
+  PLUGIN_CI_IMAGE_NAME: "registry.gitlab.com/jtl-software/jtl-shop/core/ci-plugins"
+  PLUGIN_DOCKER_WORKING_DIR : "/jtl_plugin"
+  ZIP_FILE_NAME_PREFIX : "NOVAChild"
+  ZIP_FILE_TARGET_FOLDER : "templates"
+
+stages:
+  - build
+  - deploy
+  - cleanUp
+
+.preBuildDeployScripts: &preBuildDeployScripts |
+  export CI_CONTAINER_NAME=ci-job-$CI_PROJECT_NAME-build-deploy-$CI_COMMIT_SHA
+
+  function dockerLogin() {
+    echo "Logging to GitLab Container Registry with CI credentials..."
+    docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    echo ""
+  }
+  function buildProcess() {
+    echo "Building projekt in PHP 7.2 docker image..."
+
+    docker run \
+      -dit \
+      --volume $CI_PROJECT_DIR.tmp/CI_SERVER_TLS_CA_FILE:$CI_PROJECT_DIR.tmp/CI_SERVER_TLS_CA_FILE \
+      --volume $(pwd):/dockerBuild \
+      --name="$CI_CONTAINER_NAME" \
+      $PLUGIN_CI_IMAGE_NAME:php73
+
+    BUILD_SCRIPT="#!/usr/bin/env bash \
+    composer install --no-dev -q -d ${PLUGIN_DOCKER_WORKING_DIR}"
+
+    docker exec \
+      $CI_CONTAINER_NAME \
+      sh -c "cp -r /dockerBuild/. $PLUGIN_DOCKER_WORKING_DIR && mkdir -p build/scripts && echo '$BUILD_SCRIPT' > build/scripts/build.sh && chmod 775 build/scripts/build.sh && bash build/scripts/build.sh"
+
+    echo "Build finished"
+  }
+  function deployProcess() {
+    echo "Deploying archive to build server..."
+
+    ARCHIVE_DIR='/archive'
+    PROJECT_NAME=${CI_PROJECT_NAME}
+    TAG=${CI_COMMIT_REF_NAME};
+    VERSION="${TAG//[\/\.]/-}";
+    FILENAME="${ZIP_FILE_NAME_PREFIX}-${VERSION}.zip";
+    ARCHIVE_PATH="$ARCHIVE_DIR/$FILENAME";
+    ZIP_PATH=${PLUGIN_DOCKER_WORKING_DIR};
+    NEW_ZIP_PATH="/$ZIP_FILE_NAME_PREFIX";
+    VCS_REG_TAGS="v?([0-9]{1,})\\.([0-9]{1,})\\.([0-9]{1,})";
+
+
+    DEPLOY_SCRIPT="#!/usr/bin/env bash \
+
+        echo \"Create zip of build ${TAG} ...\"; \
+
+        mv ${ZIP_PATH} ${NEW_ZIP_PATH}; \
+        zip -r -q ${ARCHIVE_PATH} ${NEW_ZIP_PATH} -x \*.git* \*.sh \*.idea* \*docs/* \*patch-dir-* \*tests/* \*build/* \*node_modules/* \*.asset_cs \*.php_cs \*.travis.yml \*phpunit.xml; \
+        echo \"] archive name: ${FILENAME}\"; \
+
+        if [[ \"${TAG}\" =~ \"${VCS_REG_TAGS}\" ]]
+            then cp -r ${ARCHIVE_PATH} ${ARCHIVE_DIR}/latest/${ZIP_FILE_NAME_PREFIX}.zip; \
+        fi
+    "
+
+    docker exec \
+      $CI_CONTAINER_NAME \
+      sh -c "echo '$DEPLOY_SCRIPT' > build/scripts/deploy.sh && chmod 775 build/scripts/deploy.sh && bash build/scripts/deploy.sh"
+
+    docker cp $CI_CONTAINER_NAME:/archive/. $CICDG_RUNNER_BUILD_PATH/$ZIP_FILE_TARGET_FOLDER
+    chmod g+w $CICDG_RUNNER_BUILD_PATH/$ZIP_FILE_TARGET_FOLDER/$FILENAME
+    docker stop "$CI_CONTAINER_NAME"
+    docker rm -fv "$CI_CONTAINER_NAME" >/dev/null
+  }
+
+.postBuildDeployScripts: &postBuildDeployScripts |
+  function dockerLogout() {
+    if [[ -n "$CI_USER_VAR" ]]; then
+      echo "Logout from GitLab Container Registry with CI credentials..."
+      docker logout "$CI_REGISTRY"
+      echo ""
+    fi
+  }
+
+workflow:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: never
+    - when: always
+
+build:
+  stage: build
+  before_script:
+    - *preBuildDeployScripts
+    - dockerLogin
+  script:
+    - buildProcess
+  after_script:
+    - *postBuildDeployScripts
+    - dockerLogout
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+        || $CI_COMMIT_REF_NAME =~ /^release\/.*$/
+        || $CI_COMMIT_TAG == $CI_COMMIT_REF_NAME
+  tags:
+    - build
+
+deploy:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  before_script:
+    - *preBuildDeployScripts
+    - dockerLogin
+  script:
+    - deployProcess
+    - buildscript pipeline:builds template $CI_PROJECT_NAME $CI_PROJECT_DIR $CI_COMMIT_REF_NAME $CI_COMMIT_SHA $ZIP_FILE_NAME_PREFIX zip 0 $CI_PROJECT_ID $CICDG_BUILD_PROJECT_TOKEN
+  after_script:
+    - *postBuildDeployScripts
+    - dockerLogout
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+        || $CI_COMMIT_REF_NAME =~ /^release\/.*$/
+        || $CI_COMMIT_TAG == $CI_COMMIT_REF_NAME
+      when: on_success
+  tags:
+    - build

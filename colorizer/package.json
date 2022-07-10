@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start:dev": "webpack-dev-server ---production false",
-    "build": "webpack --config webpack.config.js --production true  && cp ./src/templates/wawi_colorizer.html ./../app/templates/wawi_colorizer.html && cp  ./dist/main.js  ./../evo-child/js/custom_utf-8.js && cd ./../evo-child/js/ && sh ./convert.sh"
+    "build": "webpack --config webpack.config.js --production true  && cp ./src/templates/wawi_colorizer.html ./../app/templates/wawi_colorizer.html && cp  ./dist/main.js  ./../evo-child/js/custom_utf-8.js && cd ./../evo-child/js/ && sh ./convert.sh",
+    "build:new": "webpack --config webpack.config.js --production true  && copy ./src/templates/wawi_colorizer.html ./../app/templates/wawi_colorizer.html && copy ./dist/main.js ./../evo-child/js/custom.js"
   },
   "author": "",
   "license": "ISC",

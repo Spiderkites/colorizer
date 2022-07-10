@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #707070;
+        font-size: 22px;
+        font-family: FontAwesome;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #707070;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="mehrtabs-anzeigen" transform="translate(-71.138 -923)">
+    <text id="_" data-name="" class="cls-1" transform="translate(81.138 948)"><tspan x="0" y="0"></tspan></text>
+    <g id="Rectangle_175" data-name="Rectangle 175" class="cls-2" transform="translate(71.138 923)">
+      <rect class="cls-3" width="33" height="33" rx="2"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="32" height="32" rx="1.5"/>
+    </g>
+  </g>
+</svg>

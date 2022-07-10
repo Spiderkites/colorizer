@@ -1,0 +1,61 @@
+/* sliders */
+.evo-slider {
+  .slick-slide {
+    padding-top: 10px;
+    bottom: 10px;
+    .img-fluid {
+      width: 100%;
+    }
+  }
+  .ribbon-c {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+
+.ribbon {
+  position: relative;
+  display: inline-block;
+  padding: map-get($spacers, 1) $spacer;
+  font-size: $font-size-sm;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  box-shadow: rem(2px) rem(2px) rem(2px) rgba(0, 0, 0, 0.3);
+  &::before, &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    z-index: 5;
+    border-top: 0 solid transparent;
+    border-bottom: map-get($spacers, 2) solid transparent;
+    bottom: -(map-get($spacers, 2));
+  }
+  &::before {
+    border-right-width: map-get($spacers, 2);
+    border-right-style: solid;
+    left: 0;
+  }
+
+  > [class*='fa-']:last-child {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    font-size: $font-size-lg;
+  }
+}
+
+@each $color, $value in $ribbon-bg-colors {
+  .ribbon-#{$color} {
+    background-color: $value;
+    color: color-yiq($value);
+    &::before {
+      border-right-color: darken($value, 6%);
+    }
+  }
+}

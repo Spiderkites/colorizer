@@ -1,0 +1,14 @@
+
+@mixin shadow($position: relative) { position: $position;
+	&::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; width: 90%; height: 2rem; margin: auto; box-shadow: 0px rem(4px) rem(10px) transparentize($black, .55); border-radius: 50%; z-index: -1; }
+}
+
+@mixin button-variant-consent($background, $background-hover: darken($background, 7.5%), $background-active: darken($background, 10%)) { background-color: $background; border-color: $background; color: color-yiq($background);
+	&:hover { background-color: $background-hover; border-color: $background-hover; color: color-yiq($background-hover); }
+	&:focus { background-color: $background-active; border-color: $background-active; color: color-yiq($background-active); box-shadow: 0 0 0 rem(3px) rgba($background-active, .5) }
+}
+
+@mixin button-outline-variant-consent($background, $background-hover: darken($background, 7.5%), $background-active: darken($background, 10%)) { background-color: transparent; border-color: $background; color: $background;
+	&:hover { background-color: $background-hover; border-color: $background-hover; color: color-yiq($background-hover); }
+	&:focus { background-color: $background-active; border-color: $background-active; color: color-yiq($background-active); box-shadow: 0 0 0 rem(3px) rgba($background-active, .5) }
+}

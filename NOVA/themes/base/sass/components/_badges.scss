@@ -1,0 +1,65 @@
+.badge {
+	border: $border-width solid transparent;
+	text-decoration: none;
+	word-break: break-word;
+	white-space: normal;
+}
+
+@each $color, $value in $theme-colors {
+	.badge-outline-#{$color} { border-color: $value; color: $value;
+		@at-root a#{&} {
+			@include hover-focus { color: color-yiq($value); background-color: darken($value, 10%); }
+
+			&:focus,
+			&.focus { outline: 0; box-shadow: 0 0 0 $badge-focus-width rgba($value, .5); }
+		}
+	}
+}
+
+.badge-secondary {
+	background-color: $gray-darker;
+}
+
+.badge-light {
+	color: $gray-darker;
+}
+
+.badge-outline-secondary {
+	border-color: $secondary;
+	color: $secondary;
+}
+
+.bubble {
+	font-size: $font-size-lg;
+	border: 2px solid $gray-lighter;
+	border-radius: 50%;
+	padding: 12px;
+	background: #fff;
+	margin-top: - map-get($spacers, 4);
+}
+
+.badge-check {
+	border: 2px solid $primary;
+	.badge-circle {
+		display: flex;
+		background-color: $primary;
+		border-color: $primary;
+		color: #fff;
+		opacity: 1;
+		align-items: center;
+		position: absolute;
+		top: -20px;
+		right: -22px;
+	}
+}
+
+.variation {
+	.badge {
+		display: inline-flex;
+		align-items: center;
+	}
+}
+
+.badge-not-available{
+	margin-left: map-get($spacers, 2);
+}

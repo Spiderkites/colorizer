@@ -1,0 +1,107 @@
+// mixins
+@mixin fa($var) { content: #{"'\\" + $var + "'"} !important; font-family: 'Font Awesome 5 Free' !important; }
+@mixin far($var) { @include fa($var); font-weight: 400; }
+@mixin fas($var) { @include fa($var); font-weight: 900; }
+
+@mixin font-face($name, $path, $locals: '', $style: null, $weight: null, $ucrange: '', $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+          eot: '?',
+          svg: '#' + str-replace($name, ' ', '_')
+  );
+
+  $formats: (
+          otf: 'opentype',
+          ttf: 'truetype'
+  );
+
+  @each $local in $locals {
+    $src: append($src, local($local));
+  }
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face { font-family: quote($name); font-style: $style; font-weight: $weight; src: $src; unicode-range: unquote($ucrange); font-display: swap;}
+}
+
+@mixin text-truncate-overflow() {
+  position: relative;
+  display: inline-block;
+  height: ($headings-line-height * 2rem - 0.1);
+  overflow: hidden;
+  padding-right: 1rem; /* space for ellipsis */
+
+  &::before {
+    position: absolute;
+    content: "...";
+    /*   inset-block-end: 0;
+      inset-inline-end: 0; */
+    bottom: 0;
+    right: 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    /*   inset-inline-end: 0; */
+    right: 0;
+    width: 1rem;
+    height: 1rem;
+    background: white;
+  }
+}
+
+@mixin text-truncate-fade() {
+  position: relative;
+  display: inline-block;
+  height: ($headings-line-height * 2rem);
+  overflow: hidden;
+  &::after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: ($headings-line-height * 1rem);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba($body-bg, 1) 50%);
+  }
+}
+
+@mixin cssarrow($direction: top, $color: $dropdown-bg, $width: 10px, $border: $dropdown-border-width, $border-color: $dropdown-border-color) {
+  &::before, &::after { content: ''; position: absolute; border: solid transparent; height: 0; width: 0; pointer-events: none; border-color: transparent; border-width: rem($width); transform-origin: center bottom; }
+
+  @if($border > 0px) {
+    $border: round((cos(pi() / 4) * 2) * $border);
+  }
+
+  &::before { border-width: $width + $border; }
+
+  @if($direction == left or $direction == right) {
+    &::before, &::after { top: 0; }
+  }
+
+  @if($direction == top) {
+    &::before { bottom: 100%; border-bottom-color: $border-color; }
+    &::after { bottom: 100%; border-bottom-color: $color; margin: $border * 2 $border 0; }
+  }
+
+  @if($direction == bottom) {
+    &::before { top: 100%; border-top-color: $border-color; }
+    &::after { top: 100%; border-top-color: $color; margin: 0 $border $border * 2; }
+  }
+
+  @if($direction == left) {
+    &::before { right: 100%; border-right-color: $border-color; }
+    &::after { right: 100%; border-right-color: $color; margin: $border 0 $border $border * 2; }
+  }
+
+  @if($direction == right) {
+    &::before { left: 100%; border-left-color: $border-color; }
+    &::after { left: 100%; border-left-color: $color; margin: $border $border * 2 $border 0; }
+  }
+}

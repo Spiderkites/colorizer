@@ -1,0 +1,45 @@
+
+##{$prefix}-manager { font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; color: $gray-dark-consent; font-size: rem(14px); line-height: 1.5; position: fixed; z-index: $zindex-banner; bottom: 2rem; left: 1rem; right: 1rem;
+	&, & *, & *::before, & *::after { box-sizing: border-box; }
+
+	a { color: inherit; color: $shaftblue;
+		&:hover { text-decoration: none; }
+	}
+
+	p { margin: 0 0 1rem;
+		&:last-child { margin-bottom: 0; }
+	}
+
+	img, svg { vertical-align: baseline; }
+
+	strong { font-weight: 600; color: $shaftblue; }
+
+	hr { height: 0; border: 0; border-bottom: 0.0625rem solid $gray-consent; margin-top: 1rem; margin-bottom: 1rem; }
+
+	ul { margin: 1rem 0; padding-left: 2em;
+		li { margin: 0; }
+	}
+
+	&:not(.active) {
+		//crit.scss
+		display: none;
+	}
+}
+
+.#{$prefix}-icon {
+	display: inline-block;
+	vertical-align: -.2em;
+	//crit.scss
+	width: 1em;
+	height: 1em;
+	margin-left: .25em;
+}
+
+.#{$prefix}-help { color: $gray-dark-consent; font-size: .9em; margin-top: .5rem; display: block; }
+
+%#{$prefix}-display { font-weight: 600; color: $shaftblue; margin-bottom: 1rem; display: block; }
+.#{$prefix}-display-1 { @extend %#{$prefix}-display; font-size: 1.25rem;
+	@include media-breakpoint-up(md) { font-size: 1.5rem; }
+}
+.#{$prefix}-display-2 { @extend %#{$prefix}-display; font-size: 1.1rem; }
+.#{$prefix}-display-3 { @extend %#{$prefix}-display; font-size: .85rem; }

@@ -1,0 +1,65 @@
+// in crit.scss
+//.square {
+//	display: flex;
+//	position: relative;
+//	&::before {
+//		content: '';
+//		display: inline-block;
+//		padding-bottom: 100%;
+//	}
+//}
+
+.slick-slide {
+	.square {
+		display: flex !important;
+	}
+}
+
+.square-image {
+	position: relative;
+	display: flex;
+	.inner {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		picture {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			left: 0;
+			top: 0;
+		}
+
+		a {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		img {
+			display: block;
+			position: relative;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			height: auto;
+			width: auto;
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+
+			&.lazyloading {
+				color: transparent;
+				width: auto;
+				height: auto;
+				max-width: 40px;
+				max-height: 40px;
+			}
+		}
+	}
+}
+
+.square-inner { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }

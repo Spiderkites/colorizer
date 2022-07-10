@@ -1,0 +1,44 @@
+.container-fluid-xl { max-width: rem(1650px); }
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix-jtl($breakpoint, $grid-breakpoints);
+
+    .#{$infix}row-sm { margin-left: -($grid-gutter-width / 4); margin-right: -($grid-gutter-width / 4);
+      > .col,
+      > [class*='col-'] { padding-right: ($grid-gutter-width / 4); padding-left: ($grid-gutter-width / 4); }
+    }
+
+    .#{$infix}row-lg { margin-left: -$grid-gutter-width; margin-right: -$grid-gutter-width;
+      > .col,
+      > [class*='col-'] { padding-right: $grid-gutter-width; padding-left: $grid-gutter-width; }
+    }
+  }
+}
+
+.container {
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+.yt-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.container-plus-sidebar {
+  padding: 0;
+  max-width: none;
+}

@@ -1,0 +1,69 @@
+
+.font-size-base { font-size: $font-size-base; }
+.font-size-sm { font-size: $font-size-sm; }
+.font-size-lg { font-size: $font-size-lg; }
+.font-size-1\.5x { font-size: $font-size-base * 1.5; }
+.font-size-2x { font-size: $font-size-base * 2; }
+.font-size-2\.5x { font-size: $font-size-base * 2.5; }
+.font-size-3x { font-size: $font-size-base * 3; }
+
+.text-accent { font-family: $font-accent; font-weight: $font-weight-semibold; }
+
+.text-stroke { text-decoration: line-through;}
+.text-decoration-underline { text-decoration: underline;
+	@at-root {
+		a#{&}:hover, .btn-link#{&}:hover { text-decoration: $link-hover-decoration; }
+	}
+}
+.text-decoration-none-util { text-decoration: none; }
+
+@include media-breakpoint-down(lg) {
+	.font-size-2x { font-size: $font-size-base * 2 / 1.3; }
+	.font-size-2\.5x { font-size: $font-size-base * 2.5 / 1.3; }
+	.font-size-3x { font-size: $font-size-base * 3 / 1.3; }
+}
+
+@include media-breakpoint-down(md) {
+	.font-size-2x { font-size: $font-size-base * 2 / 1.4; }
+	.font-size-2\.5x { font-size: $font-size-base * 2.5 / 1.4; }
+	.font-size-3x { font-size: $font-size-base * 3 / 1.4; }
+}
+
+@include media-breakpoint-down(sm) {
+	.font-size-2x { font-size: $font-size-base * 2 / 1.5; }
+	.font-size-2\.5x { font-size: $font-size-base * 2.5 / 1.5; }
+	.font-size-3x { font-size: $font-size-base * 3 / 1.5; }
+}
+
+.word-break {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+.font-weight-bold-util {
+  font-weight: $font-weight-bold;
+}
+.text-right-util {
+	text-align: right;
+}
+.text-left-util {
+	text-align: left;
+}
+.text-center-util {
+	text-align: center;
+}
+.text-muted-util {
+	color: $text-muted;
+}
+.align-items-center-util {
+	align-items: center;
+}
+.text-nowrap-util {
+	white-space: nowrap;
+}
+

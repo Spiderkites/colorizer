@@ -1,0 +1,19 @@
+
+.#{$prefix}-switch {
+	@include media-breakpoint-up(md) { padding-left: 3.5rem; }
+
+	.#{$prefix}-input { display: none;
+		&:checked ~ .#{$prefix}-label {
+			&::before { background-color: $shaftblue-dark; }
+			&::after { left: 1.375rem; }
+		}
+	}
+
+	.#{$prefix}-label { padding-left: 3.5rem; display: inline-block; position: relative; font-weight: 600; color: $shaftblue; margin-bottom: .25rem;
+		&::before, &::after { content: ''; float: left; margin-top: .125rem; position: absolute; left: 0; top: 0; transition: all .2s; cursor: pointer; }
+		&::before { background-color: $gray-consent; border-radius: 10rem; width: 2.5rem; height: 1.25rem; }
+		&::after { border-radius: 50%; background-color: $white; height: calc(1.25rem - .25rem); width: calc(1.25rem - .25rem); top: .125rem; left: .125rem; }
+
+		@include media-breakpoint-up(md) { margin-left: -3.5rem; margin-bottom: 0; }
+	}
+}
