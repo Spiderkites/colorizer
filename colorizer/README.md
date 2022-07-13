@@ -9,28 +9,30 @@ Im  _Colorizer_ Block muss
 
 ```
 <script>
-    try {
-        window.addEventListener('load', ()=>{
-            window.initColorizer('../../svg/product.svg', '../../svg/color.svg');
-        })
-    } catch (e) { 
-        console.log(e);
-    }
-</script>
+        window.waitForInit = function(){
+            let stateCheck = setInterval(() => {
+            if (document.readyState === 'complete') {
+                clearInterval(stateCheck);
+                window.initColorizer('../../svg/product.svg', '../../svg/color.svg');
+            }
+            }, 50);
+        }
+    </script>
 ```
 
 durch 
 
 ```
- <script>
-    try {
-        window.addEventListener('load', ()=>{
-            window.initColorizer('{$Artikel->FunktionsAttribute.colorizer_product}', '{$Artikel->FunktionsAttribute.colorizer_color}');
-        })
-    } catch (e) { 
-        console.log(e);
-    }
-</script>
+<script>
+        window.waitForInit = function(){
+            let stateCheck = setInterval(() => {
+            if (document.readyState === 'complete') {
+                clearInterval(stateCheck);
+                 window.initColorizer('{$Artikel->FunktionsAttribute.colorizer_product}', '{$Artikel->FunktionsAttribute.colorizer_color}');
+            }
+            }, 50);
+        }
+    </script>
 ```
 
 ersetzt werden. 

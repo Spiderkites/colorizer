@@ -15,35 +15,34 @@ class Colorizer {
         this.vProfile = false;
         this.activeColor = undefined;
 
+        this.productHash = window.location.href.hashCode();
+
         //this._clearSvg();
 
-        const productSVG = document.getElementById("productSVG");
+        this.productSVGElement = document.getElementById("productSVG");
+        this.productSVGElement.onload = this.init.bind(this);
+
+        this.colorSVGElement = document.getElementById("colorSVG");
+        this.colorSVGElement.onload = this.initColor.bind(this);
+
         fetch(urlProductSVG)
             .then(r => r.blob())
-            .then(b => productSVG.data = URL.createObjectURL(b))
-            .catch(e=> console.log(e));
-
-        productSVG.onload = this.initProduct.bind(this)
-
-        const colorSVG = document.getElementById("colorSVG");
-        fetch(urlColorSVG)
+            .then(b => this.productSVGElement.data = URL.createObjectURL(b))
+            .then(() => fetch(urlColorSVG))
             .then(r => r.blob())
-            .then(b => colorSVG.data = URL.createObjectURL(b))
-            .catch(e=> console.log(e));
-
-        colorSVG.onload = this.initColor.bind(this)
-      
-        this.initButtons();
-
-        //Show DOM
-        d3.select('#spiderkites-colorizer').transition().style('opacity', '1');
+            .then(b => this.colorSVGElement.data = URL.createObjectURL(b))
+            .then(() => d3.select('#spiderkites-colorizer').transition().style('opacity', '1'))
+            .catch(e => console.log(e));
     }
 
-    initProduct() {
-        var obj = document.getElementById("productSVG");
-        this.productSvg = d3.select(obj.contentDocument).select('svg');
+    init(){
+        this.initProduct(true);
+        this.initButtons();
+    }
+
+    initProduct(firstLoad) {
+        this.productSvg = firstLoad ? d3.select(this.productSVGElement.contentDocument).select('svg') : d3.select('#product svg');
         this.productParts = this.productSvg.selectAll("g polygon");
-        this.productUUID = d3.select('#product').attr('uuid');
 
         const that = this;
 
@@ -74,9 +73,9 @@ class Colorizer {
 
     initColor() {
         const that = this;
-        var obj = document.getElementById("colorSVG");
+        //var obj = document.getElementById("colorSVG");
 
-        d3.select(obj.contentDocument).selectAll("rect")
+        d3.select(this.colorSVGElement.contentDocument).selectAll("rect")
             .style('cursor', 'pointer')
             .on('click', function () {
                 const color = d3.select(this);
@@ -122,13 +121,13 @@ class Colorizer {
 
         //Save Button
         d3.select('#save-btn').on('click', () => {
-            this.SaveService.setItem(this.productUUID, this.productSvg.node().outerHTML);
+            this.SaveService.setItem(this.productHash, this.productSvg.node().outerHTML);
             alert(this.i18n.translate('SUCCESS_SAVE_DIALOG'));
         });
 
         //Load Button
         d3.select('#load-btn').on('click', () => {
-            const item = this.SaveService.getItem(this.productUUID);
+            const item = this.SaveService.getItem(this.productHash);
             if (item) {
                 if (confirm(this.i18n.translate('CONFIRM_DIALOG'))) {
                     this.loadSvg(item);
@@ -157,7 +156,7 @@ class Colorizer {
     loadSvg(svg) {
         this._destroyListener();
         d3.select("#product div").html(svg);
-        this.initProduct();
+        this.initProduct(false);
     }
 
     _clearSvg() {

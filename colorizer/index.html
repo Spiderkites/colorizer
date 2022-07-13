@@ -27,7 +27,18 @@
 
 <body class="container">
     <!-- ---------------------------------- COLORIZER START ---------------------------------- -->
-<div id="spiderkites-colorizer" style="opacity: 1;">
+<div id="spiderkites-colorizer" style="opacity: 0;">
+
+    <script>
+        window.waitForInit = function(){
+            let stateCheck = setInterval(() => {
+            if (document.readyState === 'complete') {
+                clearInterval(stateCheck);
+                window.initColorizer('../../svg/product.svg', '../../svg/color.svg');
+            }
+            }, 50);
+        }
+    </script>
 
     <div id="product" uuid="UUID-Development" class="row m-3" style="margin: 1rem;">
 
@@ -79,18 +90,10 @@
         </div>
     </div>
 
-    <script>
-        try {
-            window.addEventListener('load', ()=>{
-                window.initColorizer('../../svg/product.svg', '../../svg/color.svg');
-            })
-        } catch (e) { 
-            console.log(e);
-        }
-    </script>
+    <img src onerror="window.waitForInit()">
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

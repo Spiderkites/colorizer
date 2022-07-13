@@ -1,11 +1,19 @@
 {block name='productdetails-colorizer'}
    
 
-        <!-- ---------------------------------- COLORIZER START ---------------------------------- -->
-<div id="spiderkites-colorizer" style="opacity: 1;">
+       <!-- ---------------------------------- COLORIZER START ---------------------------------- -->
+<div id="spiderkites-colorizer" style="opacity: 0;">
 
-    <hr>
-    <h2>Colorizer</h2>
+    <script>
+        window.waitForInit = function(){
+            let stateCheck = setInterval(() => {
+            if (document.readyState === 'complete') {
+                clearInterval(stateCheck);
+                window.initColorizer('{$Artikel->FunktionsAttribute.colorizer_product}', '{$Artikel->FunktionsAttribute.colorizer_color}');
+            }
+            }, 50);
+        }
+    </script>
 
     <div id="product" uuid="UUID-Development" class="row m-3" style="margin: 1rem;">
 
@@ -57,18 +65,10 @@
         </div>
     </div>
 
-    <script>
-        try {
-            window.addEventListener('load', ()=>{
-                window.initColorizer('{$Artikel->FunktionsAttribute.colorizer_product}', '{$Artikel->FunktionsAttribute.colorizer_color}');
-            })
-        } catch (e) { 
-            console.log(e);
-        }
-    </script>
+    <img src onerror="window.waitForInit()">
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
